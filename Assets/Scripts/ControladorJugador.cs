@@ -21,11 +21,14 @@ public class ControladorJugador : MonoBehaviour {
 
     //Variables para controlar las animaciones del jugador
     private Animator animador;
+    private SpriteRenderer renderizador;
 
     // Start is called before the first frame update
     void Start() {
 
-        animador = GetComponent<Animator>(); 
+        animador = GetComponent<Animator>();
+
+        renderizador = GetComponent<SpriteRenderer>();
 
     }
 
@@ -60,6 +63,16 @@ public class ControladorJugador : MonoBehaviour {
                 }
 
             }
+
+        }
+
+        if (rigidbody.velocity.x < 0) { // Con esto hago que el sprite se ponga mirando a la izquierda o a la derecha dependiendo de su dirección
+
+            renderizador.flipX = true;
+
+        } else if (rigidbody.velocity.x > 0) {
+
+            renderizador.flipX = false;
 
         }
 
