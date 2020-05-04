@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ControladorCamara.cs" />
     <Compile Include="Assets\Scripts\ControladorJugador.cs" />
     <None Include="Assets\2D Platformer Assets\Graphics\Credits.txt" />
     <Reference Include="Unity.Timeline.Editor">
