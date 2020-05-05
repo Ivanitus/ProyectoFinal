@@ -11,12 +11,15 @@ public class ControladorCamara : MonoBehaviour {
 
     public float alturaMinima, alturaMaxima; // Variables para configurar la altura minima y maxima de la camara en el nivel
 
-    private float ultimaPosicionX; // Variable para cargar la ultima posicion de X
+    //private float ultimaPosicionX; // Variable para cargar la ultima posicion de X
+    private Vector2 ultimaPosicion;
 
     // Start is called before the first frame update
     void Start() {
 
-        ultimaPosicionX = transform.position.x;
+        //ultimaPosicionX = transform.position.x;
+
+        ultimaPosicion = transform.position;
 
     }
 
@@ -32,12 +35,15 @@ public class ControladorCamara : MonoBehaviour {
         // Posicion camara que sigue al objetivo, en este caso el jugador, con limite de altura en la camara
         transform.position = new Vector3(objetivo.position.x, Mathf.Clamp(objetivo.position.y, alturaMinima, alturaMaxima), transform.position.z);
 
-        float cuantoMoverEnX = transform.position.x - ultimaPosicionX; // Calculo cuanto tengo que mover el fondo en X
+        // Paralaje del fondo
+        //float cuantoMoverEnX = transform.position.x - ultimaPosicionX; // Calculo cuanto tengo que mover el fondo en X
+        Vector2 cuantoMover = new Vector2(transform.position.x - ultimaPosicion.x, transform.position.y - ultimaPosicion.y);
 
-        fondo.position += new Vector3(cuantoMoverEnX, 0f, 0f);
-        fondoDelante.position += new Vector3(cuantoMoverEnX * .5f, 0f, 0f); // Al ser el fondo cercano, tengo que moverlo mas rapido respecto la camara
+        fondo.position += new Vector3(cuantoMover.x, cuantoMover.y, 0f);
+        fondoDelante.position += new Vector3(cuantoMover.x * .5f, cuantoMover.y, 0f) * .5f; // Al ser el fondo cercano, tengo que moverlo mas lento respecto la camara
 
-        ultimaPosicionX = transform.position.x;
+        //ultimaPosicionX = transform.position.x;
+        ultimaPosicion = transform.position;
 
     }
 }
