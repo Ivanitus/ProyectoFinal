@@ -6,7 +6,7 @@ using UnityEngine.UI;
 // Clase para controlar la interfaz gráfica del usuario (GUI)
 public class ControladorGUI : MonoBehaviour {
 
-    public static ControladorGUI instancia;
+    public static ControladorGUI instancia; // Singleton
 
     public Image corazonUno, corazonDos, corazonTres;
 
