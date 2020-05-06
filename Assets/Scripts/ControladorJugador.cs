@@ -5,6 +5,8 @@ using UnityEngine;
 //Clase para controlar los movimientos del jugador
 public class ControladorJugador : MonoBehaviour {
 
+    public static ControladorJugador instancia; // Singleton
+
     public Rigidbody2D rigidbody; // Cuerpo del jugador
 
     public float velocidadMovimiento; // Velocidad a la que se mueve el jugador
@@ -23,6 +25,15 @@ public class ControladorJugador : MonoBehaviour {
     private Animator animador;
     private SpriteRenderer renderizador;
 
+    public float duracionKnockback, fuerzaKnockback;
+    private float contadorKnockback;
+
+    private void Awake() {
+
+        instancia = this;
+
+    }
+
     // Start is called before the first frame update
     void Start() {
 
@@ -35,49 +46,77 @@ public class ControladorJugador : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        // Input.GetAxis("Horizontal") captura de unity si el jugador quiere que el personaje se mueva a la izquierda (-1) o a la derecha (1)
-        rigidbody.velocity = new Vector2(velocidadMovimiento * Input.GetAxis("Horizontal"), rigidbody.velocity.y);
+        if (contadorKnockback <= 0) {
 
-        tocandoSuelo = Physics2D.OverlapCircle(comprobarPuntoSuelo.position, .2f, sueloNivel);
+            // Input.GetAxis("Horizontal") captura de unity si el jugador quiere que el personaje se mueva a la izquierda (-1) o a la derecha (1)
+            rigidbody.velocity = new Vector2(velocidadMovimiento * Input.GetAxis("Horizontal"), rigidbody.velocity.y);
 
-        if (tocandoSuelo) {
+            tocandoSuelo = Physics2D.OverlapCircle(comprobarPuntoSuelo.position, .2f, sueloNivel);
 
-            dobleSalto = true;
+            if (tocandoSuelo) {
 
-        }
+                dobleSalto = true;
 
-        if (Input.GetButtonDown("Jump")) { // Compruebo si el jugador ha presionado el boton "Jump" asignado a saltar
+            }
 
-            if (tocandoSuelo) { // Primer Salto
+            if (Input.GetButtonDown("Jump")) { // Compruebo si el jugador ha presionado el boton "Jump" asignado a saltar
 
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, fuerzaSalto); // Pongo en y la fuerza del salto
-
-            } else {
-
-                if (dobleSalto) {
+                if (tocandoSuelo) { // Primer Salto
 
                     rigidbody.velocity = new Vector2(rigidbody.velocity.x, fuerzaSalto); // Pongo en y la fuerza del salto
 
-                    dobleSalto = false;
+                }  else {
+
+                    if (dobleSalto) {
+
+                        rigidbody.velocity = new Vector2(rigidbody.velocity.x, fuerzaSalto); // Pongo en y la fuerza del salto
+
+                        dobleSalto = false;
+
+                    }
 
                 }
 
             }
 
-        }
+            if (rigidbody.velocity.x < 0) { // Con esto hago que el sprite se ponga mirando a la izquierda o a la derecha dependiendo de su dirección
 
-        if (rigidbody.velocity.x < 0) { // Con esto hago que el sprite se ponga mirando a la izquierda o a la derecha dependiendo de su dirección
+                renderizador.flipX = true;
 
-            renderizador.flipX = true;
+            } else if (rigidbody.velocity.x > 0) {
 
-        } else if (rigidbody.velocity.x > 0) {
+                renderizador.flipX = false;
 
-            renderizador.flipX = false;
+            }
+
+        } else {
+
+            contadorKnockback -= Time.deltaTime;
+
+            if (!renderizador.flipX) {
+
+                rigidbody.velocity = new Vector2(-fuerzaKnockback, rigidbody.velocity.y);
+
+            } else {
+
+                rigidbody.velocity = new Vector2(fuerzaKnockback, rigidbody.velocity.y);
+
+            }
 
         }
 
         animador.SetFloat("velocidadMovimiento", Mathf.Abs(rigidbody.velocity.x)); // Mathf.Abs() devuelve el valor absoluto
         animador.SetBool("tocandoSuelo", tocandoSuelo);
+
+    }
+
+    public void knockback() {
+
+        contadorKnockback = duracionKnockback;
+
+        rigidbody.velocity = new Vector2(0f, fuerzaKnockback);
+
+        animador.SetTrigger("dano");
 
     }
 

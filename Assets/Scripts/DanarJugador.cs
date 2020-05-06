@@ -15,7 +15,7 @@ public class DanarJugador : MonoBehaviour {
         
     }
 
-    // Metodo sobreescrito de Unity
+    // Metodo sobreescrito de Unity que detecta cuando se produce una colision
     private void OnTriggerEnter2D(Collider2D collision) {
 
         if (collision.tag=="Player") {

@@ -9,6 +9,12 @@ public class ControladorVidaJugador : MonoBehaviour {
 
     public int vidasActuales, vidasMaximas;
 
+    public float tiempoInvencible; // Variable para definir el tiempo de invencibilidad del jugador una vez reciba daño
+
+    private float contadorInvencible;
+
+    private SpriteRenderer renderizador;
+
     // Metodo sobreescrito de Unity que se ejecuta justo antes de Start()
     private void Awake() {
 
@@ -21,20 +27,53 @@ public class ControladorVidaJugador : MonoBehaviour {
 
         vidasActuales = vidasMaximas;
 
+        renderizador = GetComponent<SpriteRenderer>(); // Cargo el SpriteRenderer
+
     }
 
     // Update is called once per frame
     void Update() {
         
+        if (contadorInvencible > 0) {
+
+            contadorInvencible -= Time.deltaTime; // Disminuyo el contador hasta llegar a 0
+
+            if (contadorInvencible <= 0) {
+
+                renderizador.color = new Color(renderizador.color.r, renderizador.color.g, renderizador.color.b, 1f); // Restauro el alfa del jugador
+
+            }
+
+        }
+
     }
 
     public void hacerDano() {
 
-        vidasActuales--;
+        if (contadorInvencible <= 0) { // Si el jugador no es invencible
 
-        if(vidasActuales <= 0) {
+            vidasActuales--;
 
-            gameObject.SetActive(false); //gameObject hace referencia al objeto al que está anclado el script
+            if (vidasActuales <= 0)
+            {
+
+                gameObject.SetActive(false); //gameObject hace referencia al objeto al que está anclado el script
+
+                vidasActuales = 0;
+
+            }
+            else
+            {
+
+                contadorInvencible = tiempoInvencible;
+
+                renderizador.color = new Color(renderizador.color.r, renderizador.color.g, renderizador.color.b, .55f); // Cuando es invisible, bajo el alfa del sprite del jugador
+
+                ControladorJugador.instancia.knockback();
+
+            }
+
+            ControladorGUI.instancia.actualizarVidasGUI(); // Llamo al metodo actualizarVidasGui() de la instancia de la clase ControladorGUI
 
         }
 
