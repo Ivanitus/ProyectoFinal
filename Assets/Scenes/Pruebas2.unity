@@ -2849,6 +2849,10 @@ PrefabInstance:
       propertyPath: tiempoInvencible
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1298361321, guid: 7006fcccf66a5574296b6f34d20ee414, type: 3}
+      propertyPath: vidasMaximas
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6599616168881972171, guid: 7006fcccf66a5574296b6f34d20ee414,
         type: 3}
       propertyPath: duracionKnockback
