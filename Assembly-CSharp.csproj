@@ -63,7 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ControladorCamara.cs" />
+    <Compile Include="Assets\Scripts\ControladorGUI.cs" />
     <Compile Include="Assets\Scripts\ControladorJugador.cs" />
+    <Compile Include="Assets\Scripts\ControladorVidaJugador.cs" />
+    <Compile Include="Assets\Scripts\DanarJugador.cs" />
     <None Include="Assets\2D Platformer Assets\Graphics\Credits.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/icamp/ProyectoFinal/ProyectoFinal/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

@@ -44,9 +44,10 @@ GameObject:
   - component: {fileID: 6599616168881972170}
   - component: {fileID: 6599616168881972171}
   - component: {fileID: 6599616168881972168}
+  - component: {fileID: 1298361321}
   m_Layer: 9
   m_Name: Jugador
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,3 +193,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1298361321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599616168881972182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a3b36be930bfd4a99a297627e0f067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidasActuales: 0
+  vidasMaximas: 6
