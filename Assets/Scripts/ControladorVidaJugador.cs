@@ -57,9 +57,11 @@ public class ControladorVidaJugador : MonoBehaviour {
             if (vidasActuales <= 0)
             {
 
-                gameObject.SetActive(false); //gameObject hace referencia al objeto al que está anclado el script
-
                 vidasActuales = 0;
+
+                //gameObject.SetActive(false); //gameObject hace referencia al objeto al que está anclado el script
+
+                GestorNivel.instancia.RespawnearJugador();
 
             }
             else
