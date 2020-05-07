@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\ControladorVidaJugador.cs" />
     <Compile Include="Assets\Scripts\DanarJugador.cs" />
     <Compile Include="Assets\Scripts\GestorNivel.cs" />
+    <Compile Include="Assets\Scripts\MatarJugador.cs" />
     <None Include="Assets\2D Platformer Assets\Graphics\Credits.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/icamp/ProyectoFinal/ProyectoFinal/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
