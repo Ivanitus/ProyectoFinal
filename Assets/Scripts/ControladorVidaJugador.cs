@@ -81,4 +81,18 @@ public class ControladorVidaJugador : MonoBehaviour {
 
     }
 
+    public void curarJugador() {
+
+        vidasActuales++;
+
+        if (vidasActuales > vidasMaximas) {
+
+            vidasActuales = vidasMaximas;
+
+        }
+
+        ControladorGUI.instancia.actualizarVidasGUI();
+
+    }
+
 }

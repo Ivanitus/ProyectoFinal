@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
+    <Compile Include="Assets\Scripts\Coger.cs" />
     <Compile Include="Assets\Scripts\ControladorCamara.cs" />
     <Compile Include="Assets\Scripts\ControladorCheckpoint.cs" />
     <Compile Include="Assets\Scripts\ControladorGUI.cs" />
