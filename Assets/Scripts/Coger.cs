@@ -11,7 +11,7 @@ public class Coger : MonoBehaviour {
 
     private bool isRecogido;
 
-    public GameObject efectoRecoger;
+    public GameObject efectoRecoger; 
 
     // Start is called before the first frame update
     void Start() {
