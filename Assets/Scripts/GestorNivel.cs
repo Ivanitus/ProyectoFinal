@@ -9,6 +9,8 @@ public class GestorNivel : MonoBehaviour {
 
     public float tiempoEsperaRespawn;
 
+    public int gemasRecogidas;
+
     private void Awake() {
 
         instancia = this;

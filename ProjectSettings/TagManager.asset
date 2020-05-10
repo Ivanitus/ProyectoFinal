@@ -47,6 +47,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Efectos
+    uniqueID: 2778231137
+    locked: 0
+  - name: Coleccionables
+    uniqueID: 3046305287
+    locked: 0
+  - name: Enemigos
+    uniqueID: 2458224735
+    locked: 0
   - name: Jugador
     uniqueID: 3532909925
     locked: 0

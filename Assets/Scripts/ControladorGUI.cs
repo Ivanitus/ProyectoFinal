@@ -12,6 +12,8 @@ public class ControladorGUI : MonoBehaviour {
 
     public Sprite corazonLleno, corazonMedioLleno, corazonVacio;
 
+    public Text textoGemas;
+
     // Metodo que se ejecuta justo antes del Start()
     private void Awake() {
 
@@ -21,7 +23,9 @@ public class ControladorGUI : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        
+
+        actualizarContadorGemas();
+
     }
 
     // Update is called once per frame
@@ -83,6 +87,12 @@ public class ControladorGUI : MonoBehaviour {
                 break;
 
         }
+
+    }
+
+    public void actualizarContadorGemas() {
+
+        textoGemas.text = GestorNivel.instancia.gemasRecogidas.ToString();
 
     }
 

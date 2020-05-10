@@ -15,6 +15,8 @@ public class ControladorVidaJugador : MonoBehaviour {
 
     private SpriteRenderer renderizador;
 
+    public GameObject efectoMuerte;
+
     // Metodo sobreescrito de Unity que se ejecuta justo antes de Start()
     private void Awake() {
 
@@ -61,6 +63,8 @@ public class ControladorVidaJugador : MonoBehaviour {
 
                 //gameObject.SetActive(false); //gameObject hace referencia al objeto al que está anclado el script
 
+                Instantiate(efectoMuerte, transform.position, transform.rotation); // Creo una instancia del objeto efectoMuerte y le paso la posicion y rotacion del item
+
                 GestorNivel.instancia.RespawnearJugador();
 
             }
@@ -78,6 +82,20 @@ public class ControladorVidaJugador : MonoBehaviour {
             ControladorGUI.instancia.actualizarVidasGUI(); // Llamo al metodo actualizarVidasGui() de la instancia de la clase ControladorGUI
 
         }
+
+    }
+
+    public void curarJugador() {
+
+        vidasActuales++;
+
+        if (vidasActuales > vidasMaximas) {
+
+            vidasActuales = vidasMaximas;
+
+        }
+
+        ControladorGUI.instancia.actualizarVidasGUI();
 
     }
 
