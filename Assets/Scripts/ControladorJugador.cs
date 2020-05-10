@@ -28,6 +28,8 @@ public class ControladorJugador : MonoBehaviour {
     public float duracionKnockback, fuerzaKnockback;
     private float contadorKnockback;
 
+    public float fuerzaRebote; // Variable para guardar la fuerza de rebote al matar a un enemigo
+
     private void Awake() {
 
         instancia = this;
@@ -117,6 +119,13 @@ public class ControladorJugador : MonoBehaviour {
         rigidbody.velocity = new Vector2(0f, fuerzaKnockback);
 
         animador.SetTrigger("dano");
+
+    }
+
+    // Metodo que se ejecuta cuando matas a un enemigo
+    public void rebotar() {
+
+        rigidbody.velocity = new Vector2(rigidbody.velocity.x, fuerzaRebote);
 
     }
 
