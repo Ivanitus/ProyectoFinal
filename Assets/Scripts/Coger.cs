@@ -11,6 +11,8 @@ public class Coger : MonoBehaviour {
 
     private bool isRecogido;
 
+    public GameObject efectoRecoger;
+
     // Start is called before the first frame update
     void Start() {
         
@@ -33,6 +35,8 @@ public class Coger : MonoBehaviour {
 
                 Destroy(gameObject);
 
+                Instantiate(efectoRecoger, transform.position, transform.rotation); // Creo una instancia del objeto efectoRecoger y le paso la posicion y rotacion del item
+
                 ControladorGUI.instancia.actualizarContadorGemas();
 
             }
@@ -46,6 +50,8 @@ public class Coger : MonoBehaviour {
                     isRecogido = true;
 
                     Destroy(gameObject);
+
+                    Instantiate(efectoRecoger, transform.position, transform.rotation); // Creo una instancia del objeto efectoRecoger y le paso la posicion y rotacion del item
 
                 }
 
