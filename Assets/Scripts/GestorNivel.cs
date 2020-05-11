@@ -41,6 +41,8 @@ public class GestorNivel : MonoBehaviour {
 
         ControladorJugador.instancia.gameObject.SetActive(false);
 
+        GestorAudio.instancia.reproducirSFX(8);
+
         yield return new WaitForSeconds(tiempoEsperaRespawn); // yield return le dice a RespawnCO que tiene que esperar a que sea true lo que retorne
 
         ControladorJugador.instancia.gameObject.SetActive(true);

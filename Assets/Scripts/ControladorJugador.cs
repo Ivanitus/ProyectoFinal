@@ -67,11 +67,15 @@ public class ControladorJugador : MonoBehaviour {
 
                     rigidbody.velocity = new Vector2(rigidbody.velocity.x, fuerzaSalto); // Pongo en y la fuerza del salto
 
+                    GestorAudio.instancia.reproducirSFX(10);
+
                 }  else {
 
                     if (dobleSalto) {
 
                         rigidbody.velocity = new Vector2(rigidbody.velocity.x, fuerzaSalto); // Pongo en y la fuerza del salto
+
+                        GestorAudio.instancia.reproducirSFX(10);
 
                         dobleSalto = false;
 
@@ -126,6 +130,8 @@ public class ControladorJugador : MonoBehaviour {
     public void rebotar() {
 
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, fuerzaRebote);
+
+        GestorAudio.instancia.reproducirSFX(10);
 
     }
 

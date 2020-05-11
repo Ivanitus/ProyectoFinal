@@ -77,6 +77,8 @@ public class ControladorVidaJugador : MonoBehaviour {
 
                 ControladorJugador.instancia.knockback();
 
+                GestorAudio.instancia.reproducirSFX(9);
+
             }
 
             ControladorGUI.instancia.actualizarVidasGUI(); // Llamo al metodo actualizarVidasGui() de la instancia de la clase ControladorGUI

@@ -33,6 +33,8 @@ public class Checkpoint : MonoBehaviour {
 
             ControladorCheckpoint.instancia.guardarPuntoSpawn(transform.position);
 
+            //GestorAudio.instancia.reproducirSFX(12);
+
         }
 
     }

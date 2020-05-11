@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\ControladorVidaJugador.cs" />
     <Compile Include="Assets\Scripts\DanarJugador.cs" />
     <Compile Include="Assets\Scripts\DestruirPasadoTiempo.cs" />
+    <Compile Include="Assets\Scripts\GestorAudio.cs" />
     <Compile Include="Assets\Scripts\GestorNivel.cs" />
     <Compile Include="Assets\Scripts\MatarJugador.cs" />
     <Compile Include="Assets\Scripts\ZonaPisada.cs" />
