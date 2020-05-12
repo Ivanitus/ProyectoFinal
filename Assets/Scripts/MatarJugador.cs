@@ -18,6 +18,8 @@ public class MatarJugador : MonoBehaviour {
         
         if (collision.CompareTag("Player")) {
 
+            GestorAudio.instancia.reproducirSFX(8);
+
             GestorNivel.instancia.RespawnearJugador();
 
         }

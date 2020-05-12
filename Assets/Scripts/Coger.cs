@@ -39,6 +39,8 @@ public class Coger : MonoBehaviour {
 
                 ControladorGUI.instancia.actualizarContadorGemas();
 
+                GestorAudio.instancia.reproducirSFX(6);
+
             }
 
             if (isCereza) {
@@ -52,6 +54,8 @@ public class Coger : MonoBehaviour {
                     Destroy(gameObject);
 
                     Instantiate(efectoRecoger, transform.position, transform.rotation); // Creo una instancia del objeto efectoRecoger y le paso la posicion y rotacion del item
+
+                    GestorAudio.instancia.reproducirSFX(7);
 
                 }
 

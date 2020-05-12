@@ -42,6 +42,8 @@ public class ZonaPisada : MonoBehaviour {
 
             }
 
+            GestorAudio.instancia.reproducirSFX(3);
+
         }
 
     }
