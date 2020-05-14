@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\GestorAudio.cs" />
     <Compile Include="Assets\Scripts\GestorNivel.cs" />
     <Compile Include="Assets\Scripts\MatarJugador.cs" />
+    <Compile Include="Assets\Scripts\MenuPausa.cs" />
     <Compile Include="Assets\Scripts\MenuPrincipal.cs" />
     <Compile Include="Assets\Scripts\ZonaPisada.cs" />
     <None Include="Assets\Controles\Creditos.txt" />
