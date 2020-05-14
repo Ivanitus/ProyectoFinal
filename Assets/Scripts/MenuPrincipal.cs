@@ -13,6 +13,10 @@ public class MenuPrincipal : MonoBehaviour {
 
     public Button[] botones;
 
+    public Image[] imagenesTeclado;
+
+    public Image[] imagenesMando;
+
     private int botonSeleccionado;
 
     private bool puedeInteractuar;
@@ -33,7 +37,11 @@ public class MenuPrincipal : MonoBehaviour {
 
         int VerticalInput = (int) Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) { // Navegación con el teclado
+        if (Input.GetKeyDown(KeyCode.DownArrow)) { // Navegación con el teclado
+
+            desactivarImagenesMando();
+
+            activarImagenesTeclado();
 
             try {
 
@@ -54,7 +62,11 @@ public class MenuPrincipal : MonoBehaviour {
 
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) { // Navegación con el teclado
+        if (Input.GetKeyDown(KeyCode.UpArrow)) { // Navegación con el teclado
+
+            desactivarImagenesMando();
+
+            activarImagenesTeclado();
 
             try {
 
@@ -74,6 +86,10 @@ public class MenuPrincipal : MonoBehaviour {
         }
 
         if (VerticalInput != 0 && puedeInteractuar) { // Compruebo si se usa el joystick del mando
+
+            desactivarImagenesTeclado();
+
+            activarImagenesMando();
 
             puedeInteractuar = false;
 
@@ -103,6 +119,47 @@ public class MenuPrincipal : MonoBehaviour {
         Debug.Log("Saliendo del juego");
 
     }
+
+    private void desactivarImagenesTeclado() {
+
+        for (int i = 0; i<imagenesTeclado.Length; i++) {
+
+            imagenesTeclado[i].gameObject.SetActive(false);
+
+        }
+
+    }
+
+    private void activarImagenesTeclado() {
+
+        for (int i = 0; i < imagenesTeclado.Length; i++) {
+
+            imagenesTeclado[i].gameObject.SetActive(true);
+
+        }
+
+    }
+
+    private void desactivarImagenesMando() {
+
+        for (int i = 0; i < imagenesMando.Length; i++) {
+
+            imagenesMando[i].gameObject.SetActive(false);
+
+        }
+
+    }
+
+    private void activarImagenesMando() {
+
+        for (int i = 0; i < imagenesMando.Length; i++) {
+
+            imagenesMando[i].gameObject.SetActive(true);
+
+        }
+
+    }
+
 
     private IEnumerator cambioMenu(int input){ // Corutina que me permite controlar el menu con el joystick del mando
 
