@@ -48,64 +48,68 @@ public class ControladorJugador : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (contadorKnockback <= 0) {
+        if (!MenuPausa.instancia.pausado) {
 
-            // Input.GetAxis("Horizontal") captura de unity si el jugador quiere que el personaje se mueva a la izquierda (-1) o a la derecha (1)
-            rigidbody.velocity = new Vector2(velocidadMovimiento * Input.GetAxis("Horizontal"), rigidbody.velocity.y);
+            if (contadorKnockback <= 0) {
 
-            tocandoSuelo = Physics2D.OverlapCircle(comprobarPuntoSuelo.position, .2f, sueloNivel);
+                // Input.GetAxis("Horizontal") captura de unity si el jugador quiere que el personaje se mueva a la izquierda (-1) o a la derecha (1)
+                rigidbody.velocity = new Vector2(velocidadMovimiento * Input.GetAxis("Horizontal"), rigidbody.velocity.y);
 
-            if (tocandoSuelo) {
+                tocandoSuelo = Physics2D.OverlapCircle(comprobarPuntoSuelo.position, .2f, sueloNivel);
 
-                dobleSalto = true;
+                if (tocandoSuelo) {
 
-            }
+                    dobleSalto = true;
 
-            if (Input.GetButtonDown("Jump")) { // Compruebo si el jugador ha presionado el boton "Jump" asignado a saltar
+                }
 
-                if (tocandoSuelo) { // Primer Salto
+                if (Input.GetButtonDown("Jump")) { // Compruebo si el jugador ha presionado el boton "Jump" asignado a saltar
 
-                    rigidbody.velocity = new Vector2(rigidbody.velocity.x, fuerzaSalto); // Pongo en y la fuerza del salto
-
-                    GestorAudio.instancia.reproducirSFX(10);
-
-                }  else {
-
-                    if (dobleSalto) {
+                    if (tocandoSuelo) { // Primer Salto
 
                         rigidbody.velocity = new Vector2(rigidbody.velocity.x, fuerzaSalto); // Pongo en y la fuerza del salto
 
                         GestorAudio.instancia.reproducirSFX(10);
 
-                        dobleSalto = false;
+                    } else {
+
+                        if (dobleSalto) {
+
+                            rigidbody.velocity = new Vector2(rigidbody.velocity.x, fuerzaSalto); // Pongo en y la fuerza del salto
+
+                            GestorAudio.instancia.reproducirSFX(10);
+
+                            dobleSalto = false;
+
+                        }
 
                     }
 
                 }
 
-            }
+                if (rigidbody.velocity.x < 0) { // Con esto hago que el sprite se ponga mirando a la izquierda o a la derecha dependiendo de su dirección
 
-            if (rigidbody.velocity.x < 0) { // Con esto hago que el sprite se ponga mirando a la izquierda o a la derecha dependiendo de su dirección
+                    renderizador.flipX = true;
 
-                renderizador.flipX = true;
+                } else if (rigidbody.velocity.x > 0) {
 
-            } else if (rigidbody.velocity.x > 0) {
+                    renderizador.flipX = false;
 
-                renderizador.flipX = false;
-
-            }
-
-        } else {
-
-            contadorKnockback -= Time.deltaTime;
-
-            if (!renderizador.flipX) {
-
-                rigidbody.velocity = new Vector2(-fuerzaKnockback, rigidbody.velocity.y);
+                }
 
             } else {
 
-                rigidbody.velocity = new Vector2(fuerzaKnockback, rigidbody.velocity.y);
+                contadorKnockback -= Time.deltaTime;
+
+                if (!renderizador.flipX) {
+
+                    rigidbody.velocity = new Vector2(-fuerzaKnockback, rigidbody.velocity.y);
+
+                } else {
+
+                    rigidbody.velocity = new Vector2(fuerzaKnockback, rigidbody.velocity.y);
+
+                }
 
             }
 

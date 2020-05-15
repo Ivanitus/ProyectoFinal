@@ -14,6 +14,12 @@ public class ControladorGUI : MonoBehaviour {
 
     public Text textoGemas;
 
+    public Image pantallaTransicion;
+
+    public float velocidadTransicion;
+
+    private bool debeTransicionANegro, debeTransicionDesdeNegro;
+
     // Metodo que se ejecuta justo antes del Start()
     private void Awake() {
 
@@ -26,11 +32,38 @@ public class ControladorGUI : MonoBehaviour {
 
         actualizarContadorGemas();
 
+        transicionDesdeNegro();
+
     }
 
     // Update is called once per frame
     void Update() {
         
+        if (debeTransicionANegro) {
+
+            pantallaTransicion.color = new Color(pantallaTransicion.color.r, pantallaTransicion.color.g, pantallaTransicion.color.b, Mathf.MoveTowards(pantallaTransicion.color.a, 1f, velocidadTransicion * Time.deltaTime));
+
+            if (pantallaTransicion.color.a == 1f) {
+
+                debeTransicionANegro = false;
+
+            }
+
+        }
+
+        if (debeTransicionDesdeNegro) {
+
+            pantallaTransicion.color = new Color(pantallaTransicion.color.r, pantallaTransicion.color.g, pantallaTransicion.color.b, Mathf.MoveTowards(pantallaTransicion.color.a, 0f, velocidadTransicion * Time.deltaTime));
+
+            if (pantallaTransicion.color.a == 0f)
+            {
+
+                debeTransicionDesdeNegro = false;
+
+            }
+
+        }
+
     }
 
     public void actualizarVidasGUI() { // Metodo para cambiar las vidas desplegadas en la interfaz
@@ -93,6 +126,22 @@ public class ControladorGUI : MonoBehaviour {
     public void actualizarContadorGemas() {
 
         textoGemas.text = GestorNivel.instancia.gemasRecogidas.ToString();
+
+    }
+
+    public void transicinANegro()
+    {
+
+        debeTransicionANegro = true;
+        debeTransicionDesdeNegro = false;
+
+    }
+
+    public void transicionDesdeNegro()
+    {
+
+        debeTransicionANegro = false;
+        debeTransicionDesdeNegro = true;
 
     }
 

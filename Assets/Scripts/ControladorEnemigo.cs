@@ -40,59 +40,59 @@ public class ControladorEnemigo : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (contadorMovimiento > 0) {
+            if (contadorMovimiento > 0) {
 
-            contadorMovimiento -= Time.deltaTime;
+                contadorMovimiento -= Time.deltaTime;
 
-            if (moverDerecha) {
+                if (moverDerecha) {
 
-                rigidbody.velocity = new Vector2(velocidadMovimiento, rigidbody.velocity.y);
+                    rigidbody.velocity = new Vector2(velocidadMovimiento, rigidbody.velocity.y);
 
-                renderizador.flipX = true;
+                    renderizador.flipX = true;
 
-                if (transform.position.x > puntoDerecho.position.x) {
+                    if (transform.position.x > puntoDerecho.position.x) {
 
-                    moverDerecha = false;
+                        moverDerecha = false;
+
+                    }
+
+                } else {
+
+                    rigidbody.velocity = new Vector2(-velocidadMovimiento, rigidbody.velocity.y);
+
+                    renderizador.flipX = false;
+
+                    if (transform.position.x < puntoIzquierdo.position.x) {
+
+                        moverDerecha = true;
+
+                    }
 
                 }
 
-            } else {
+                if (contadorMovimiento <= 0) {
 
-                rigidbody.velocity = new Vector2(-velocidadMovimiento, rigidbody.velocity.y);
-
-                renderizador.flipX = false;
-
-                if (transform.position.x < puntoIzquierdo.position.x) {
-
-                    moverDerecha = true;
+                    contadorEspera = Random.Range(tiempoEspera * .5f, tiempoEspera * 1.5f);
 
                 }
 
-            }
+                anim.SetBool("isMoviendo", true);
 
-            if (contadorMovimiento <= 0) {
+            } else if (tiempoEspera > 0) {
 
-                contadorEspera = Random.Range(tiempoEspera * .5f, tiempoEspera * 1.5f);
+                contadorEspera -= Time.deltaTime;
 
-            }
+                rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
 
-            anim.SetBool("isMoviendo", true);
+                if (contadorEspera <= 0) {
 
-        }  else if (tiempoEspera > 0) {
+                    contadorMovimiento = Random.Range(tiempoMovimiento * .5f, tiempoMovimiento * 1.5f);
 
-            contadorEspera -= Time.deltaTime;
+                }
 
-            rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
-
-            if (contadorEspera <= 0) {
-
-                contadorMovimiento = Random.Range(tiempoMovimiento * .5f, tiempoMovimiento * 1.5f);
+                anim.SetBool("isMoviendo", false);
 
             }
-
-            anim.SetBool("isMoviendo", false);
-
-        }
 
     }
 
