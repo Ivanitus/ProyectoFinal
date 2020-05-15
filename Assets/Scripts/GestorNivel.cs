@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Clase que gestionara el nivel
 public class GestorNivel : MonoBehaviour {
@@ -10,6 +11,8 @@ public class GestorNivel : MonoBehaviour {
     public float tiempoEsperaRespawn;
 
     public int gemasRecogidas;
+
+    public string siguienteNivel;
 
     private void Awake() {
 
@@ -45,11 +48,11 @@ public class GestorNivel : MonoBehaviour {
 
         yield return new WaitForSeconds(tiempoEsperaRespawn - (1f / ControladorGUI.instancia.velocidadTransicion)); // yield return le dice a RespawnCO que tiene que esperar a que sea true lo que retorne
 
-        ControladorGUI.instancia.transicinANegro();
+        ControladorGUI.instancia.transicinANegro(); // Ejecuto la transicion a negro
 
         yield return new WaitForSeconds((1f / ControladorGUI.instancia.velocidadTransicion) + .2f);
 
-        ControladorGUI.instancia.transicionDesdeNegro();
+        ControladorGUI.instancia.transicionDesdeNegro(); // Ejecuto la transicion desde negro 
 
         ControladorJugador.instancia.gameObject.SetActive(true);
 
@@ -58,6 +61,30 @@ public class GestorNivel : MonoBehaviour {
         ControladorVidaJugador.instancia.vidasActuales = ControladorVidaJugador.instancia.vidasMaximas;
 
         ControladorGUI.instancia.actualizarVidasGUI();
+
+    }
+
+    public void finNivel() {
+
+        StartCoroutine(finNivelCO());
+
+    }
+
+    private IEnumerator finNivelCO() {
+
+        ControladorJugador.instancia.pararInput = true; // Quito el control al usuario
+
+        ControladorCamara.instancia.pararSeguimiento = true; // Paro el seguimiento de la cámara
+
+        ControladorGUI.instancia.textoNivelCompletado.SetActive(true); // Muestro el texto de nivel completado
+
+        yield return new WaitForSeconds(1.5f); // Espero 1.5 segundos
+
+        ControladorGUI.instancia.transicinANegro(); // Hago la transición a negro
+
+        yield return new WaitForSeconds((1f / ControladorGUI.instancia.velocidadTransicion) + .25f); // Espero 1 segundo dividido por la velocidad de la transición + 0.25 segundos
+
+        SceneManager.LoadScene(siguienteNivel); // Cargo el siguiente nivel
 
     }
 

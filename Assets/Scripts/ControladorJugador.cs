@@ -30,6 +30,8 @@ public class ControladorJugador : MonoBehaviour {
 
     public float fuerzaRebote; // Variable para guardar la fuerza de rebote al matar a un enemigo
 
+    public bool pararInput;
+
     private void Awake() {
 
         instancia = this;
@@ -48,7 +50,7 @@ public class ControladorJugador : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (!MenuPausa.instancia.pausado) {
+        if (!MenuPausa.instancia.pausado && !pararInput) {
 
             if (contadorKnockback <= 0) {
 
