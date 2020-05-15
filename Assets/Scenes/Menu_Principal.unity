@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 98843972}
   - component: {fileID: 98843971}
   m_Layer: 5
-  m_Name: ControlAMando
+  m_Name: ControlXMando
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 59d68182acc0aa84b9405950a964b0e2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30d8643adb833334597507b84983a10c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
