@@ -78,7 +78,11 @@ public class GestorNivel : MonoBehaviour {
 
         ControladorGUI.instancia.textoNivelCompletado.SetActive(true); // Muestro el texto de nivel completado
 
-        yield return new WaitForSeconds(1.5f); // Espero 1.5 segundos
+        GestorAudio.instancia.musicaFondo.Stop();
+
+        GestorAudio.instancia.musicaFinalNivel.Play();
+
+        yield return new WaitForSeconds(2f); // Espero 1.5 segundos
 
         ControladorGUI.instancia.transicinANegro(); // Hago la transición a negro
 
