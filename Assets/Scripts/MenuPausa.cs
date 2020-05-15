@@ -171,7 +171,7 @@ public class MenuPausa : MonoBehaviour {
 
     }
 
-    public void cargarMenu() {
+    public void cargarMenu() { 
 
         SceneManager.LoadScene(menu);
 
@@ -234,18 +234,14 @@ public class MenuPausa : MonoBehaviour {
     }
 
 
-    private IEnumerator cambioMenu(int input)
-    { // Corutina que me permite controlar el menu con el joystick del mando
+    private IEnumerator cambioMenu(int input) { // Corutina que me permite controlar el menu con el joystick del mando
 
-        if (input < 0 && botonSeleccionado < botones.Length - 1)
-        {
+        if (input < 0 && botonSeleccionado < botones.Length - 1) {
 
             botonSeleccionado += 2;
             //botonSeleccionado++;
 
-        }
-        else if (input > 0 && botonSeleccionado > 0)
-        {
+        } else if (input > 0 && botonSeleccionado > 0) {
 
             botonSeleccionado -= 2;
             //botonSeleccionado--;
