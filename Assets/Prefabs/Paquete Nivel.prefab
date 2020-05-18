@@ -1157,7 +1157,7 @@ MonoBehaviour:
     type: 3}
   coleccionable: {fileID: 7676200062876460643, guid: 96cc963a1ade8ae4ca5d51e615f3a5de,
     type: 3}
-  probabilidadDropeo: 50
+  probabilidadDropeo: 60
 --- !u!1 &8070342910356955980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,7 +2005,7 @@ PrefabInstance:
         type: 3}
       propertyPath: musicaMenu
       value: 
-      objectReference: {fileID: 1472889037291781757}
+      objectReference: {fileID: 0}
     - target: {fileID: 8903439273709245417, guid: 6752010c0907d954c9211943ed32ef4b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2066,12 +2066,6 @@ PrefabInstance:
 --- !u!4 &8070342909686673739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8903439273709245417, guid: 6752010c0907d954c9211943ed32ef4b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1472889039077302946}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1472889037291781757 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1788026079, guid: 6752010c0907d954c9211943ed32ef4b,
     type: 3}
   m_PrefabInstance: {fileID: 1472889039077302946}
   m_PrefabAsset: {fileID: 0}

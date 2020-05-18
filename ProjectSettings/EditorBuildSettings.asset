@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pruebas2.unity
     guid: 4f73b8ac45f7fe24da0399d095a92e29
+  - enabled: 1
+    path: Assets/Scenes/Niveles/NivelDos.unity
+    guid: d767934ce473c5048a1c4f6549902153
+  - enabled: 1
+    path: Assets/Scenes/Niveles/NivelUno.unity
+    guid: 08020c5411103ce4fa15fd6a1b5e70c3
   m_configObjects: {}
