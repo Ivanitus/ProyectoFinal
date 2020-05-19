@@ -20,6 +20,8 @@ public class ControladorGUI : MonoBehaviour {
 
     private bool debeTransicionANegro, debeTransicionDesdeNegro;
 
+    public GameObject textoNivelCompletado;
+
     // Metodo que se ejecuta justo antes del Start()
     private void Awake() {
 

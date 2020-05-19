@@ -13,8 +13,6 @@ public class GestorAudio : MonoBehaviour {
 
     public AudioSource musicaFinalNivel;
 
-    public AudioSource musicaMenu;
-
     private void Awake() {
 
         instancia = this;
