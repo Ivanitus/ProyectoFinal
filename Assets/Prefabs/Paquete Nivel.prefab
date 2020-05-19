@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb25a73e1678dd740ac22965f368fc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seleccionNivel: 
+  seleccionNivel: SeleccionNivel
   menu: Menu_Principal
   pantallaPausa: {fileID: 8070342909240795455}
   pausado: 0
@@ -2436,7 +2436,7 @@ PrefabInstance:
     - target: {fileID: 1014136602046141002, guid: 7181113755ecfa74d9c23fd4c3250876,
         type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1014136602046141002, guid: 7181113755ecfa74d9c23fd4c3250876,
         type: 3}

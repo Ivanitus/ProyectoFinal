@@ -88,6 +88,8 @@ public class GestorNivel : MonoBehaviour {
 
         yield return new WaitForSeconds((1f / ControladorGUI.instancia.velocidadTransicion) + .25f); // Espero 1 segundo dividido por la velocidad de la transición + 0.25 segundos
 
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_desbloqueado", 1);
+
         SceneManager.LoadScene(siguienteNivel); // Cargo el siguiente nivel
 
     }
