@@ -22,6 +22,8 @@ public class ControladorGUI : MonoBehaviour {
 
     public GameObject textoNivelCompletado;
 
+    public Text textoTiempo;
+
     // Metodo que se ejecuta justo antes del Start()
     private void Awake() {
 

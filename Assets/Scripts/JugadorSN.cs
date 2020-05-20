@@ -83,6 +83,8 @@ public class JugadorSN : MonoBehaviour {
 
         ControladorGUISN.instancia.ocultarInformacion();
 
+        GestorAudio.instancia.reproducirSFX(5);
+
     }
 
 }

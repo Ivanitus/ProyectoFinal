@@ -43,4 +43,12 @@ public class GestorAudio : MonoBehaviour {
 
     }
 
+    public void reproducirMusicaFinNivel() {
+
+        musicaFondo.Stop();
+
+        musicaFinalNivel.Play();
+
+    }
+
 }

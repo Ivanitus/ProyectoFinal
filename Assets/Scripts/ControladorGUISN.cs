@@ -16,7 +16,7 @@ public class ControladorGUISN : MonoBehaviour {
 
     public GameObject panelInformacionNivel;
 
-    public Text nombreNivel;
+    public Text nombreNivel, gemasEncontradas, gemasNivel, record, tiempoObjetivo;
 
     private void Awake() {
 
@@ -77,6 +77,21 @@ public class ControladorGUISN : MonoBehaviour {
     public void mostrarInformacion(PuntoMapa informacionNivel) {
 
         nombreNivel.text = informacionNivel.nombreNivelUsuario;
+
+        gemasEncontradas.text = "ENCONTRADAS: " + informacionNivel.gemasRecogidas; // No hace falta cambiar int a string ya que c# lo convierte automaticamente al detectar un string previo
+        gemasNivel.text = "EN EL NIVEL: " + informacionNivel.gemasTotales;
+
+        tiempoObjetivo.text = "OBJETIVO: " + informacionNivel.tiempoObjetivo + "s";
+
+        if (informacionNivel.tiempoRecord == 0) {
+
+            record.text = "RECORD: ----";
+
+        } else {
+
+            record.text = "RECORD: " + informacionNivel.tiempoRecord.ToString("F2") + "s"; // En este caso si uso el ToString, pero pasando "F2", lo cual indica es que queremos un float con dos decimales
+
+        }
 
         panelInformacionNivel.SetActive(true);
 

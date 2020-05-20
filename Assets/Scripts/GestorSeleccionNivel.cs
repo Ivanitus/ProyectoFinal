@@ -8,9 +8,29 @@ public class GestorSeleccionNivel : MonoBehaviour {
 
     public JugadorSN jugador;
 
+    private PuntoMapa[] puntos;
+
     // Start is called before the first frame update
     void Start() {
-        
+
+        puntos = FindObjectsOfType<PuntoMapa>();
+
+        if (PlayerPrefs.HasKey("NivelActual")) {
+
+            for (int i = 0; i < puntos.Length; i++) {
+
+                if (puntos[i].nombreNivel.Equals(PlayerPrefs.GetString("NivelActual"))) {
+
+                    jugador.transform.position = puntos[i].transform.position;
+
+                    jugador.puntoActual = puntos[i];
+
+                }
+
+            }
+
+        }
+
     }
 
     // Update is called once per frame
@@ -25,6 +45,8 @@ public class GestorSeleccionNivel : MonoBehaviour {
     }
 
     private IEnumerator cargarNivelCO() {
+
+        GestorAudio.instancia.reproducirSFX(4);
 
         ControladorGUISN.instancia.transicinANegro();
 

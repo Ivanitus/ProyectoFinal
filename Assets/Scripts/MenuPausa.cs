@@ -165,6 +165,8 @@ public class MenuPausa : MonoBehaviour {
 
     public void cargarSeleccionNivel() {
 
+        PlayerPrefs.SetString("NivelActual", SceneManager.GetActiveScene().name);
+
         SceneManager.LoadScene(seleccionNivel);
 
         Time.timeScale = 1f;

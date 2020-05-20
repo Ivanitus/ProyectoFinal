@@ -11,10 +11,40 @@ public class PuntoMapa : MonoBehaviour {
 
     public string nombreNivel, nivelComprobar, nombreNivelUsuario;
 
+    public int gemasRecogidas, gemasTotales;
+
+    public float tiempoRecord, tiempoObjetivo;
+
+    public GameObject medallaGema, medallaTiempo;
+
     // Start is called before the first frame update
     void Start() {
         
         if (puntoNivel && nombreNivel != null) {
+
+            if (PlayerPrefs.HasKey(nombreNivel + "_gemas")) {
+
+                gemasRecogidas = PlayerPrefs.GetInt(nombreNivel + "_gemas");
+
+            }
+
+            if (PlayerPrefs.HasKey(nombreNivel + "_tiempo")) {
+
+                tiempoRecord = PlayerPrefs.GetFloat(nombreNivel + "_tiempo");
+
+            }
+
+            if (gemasRecogidas >= gemasTotales && gemasRecogidas != 0) {
+
+                medallaGema.SetActive(true);
+
+            }
+
+            if (tiempoRecord <= tiempoObjetivo && tiempoRecord != 0) {
+
+                medallaTiempo.SetActive(true);
+
+            }
 
             bloqueado = true;
 
