@@ -34,7 +34,7 @@ public class GestorNivel : MonoBehaviour {
 
         tiempoNivel += Time.deltaTime; // Sumo al tiempo del nivel el deltatime
 
-        ControladorGUI.instancia.textoTiempo.text = tiempoNivel.ToString("F0") + "s";
+        ControladorGUI.instancia.textoTiempo.text = tiempoNivel.ToString("F1") + "s";
 
     }
 
