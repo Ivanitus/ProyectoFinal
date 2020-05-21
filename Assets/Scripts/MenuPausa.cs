@@ -83,8 +83,8 @@ public class MenuPausa : MonoBehaviour {
 
                 }
 
-                botonSeleccionado += 2;
-                //botonSeleccionado++;
+                //botonSeleccionado += 2;
+                botonSeleccionado++;
 
                 if (botonSeleccionado == botones.Length) {
 
@@ -110,8 +110,8 @@ public class MenuPausa : MonoBehaviour {
 
                 if (botonSeleccionado > 0) {
 
-                    botonSeleccionado -= 2;
-                    //botonSeleccionado--;
+                    //botonSeleccionado -= 2;
+                    botonSeleccionado--;
 
                 }
 
@@ -164,6 +164,8 @@ public class MenuPausa : MonoBehaviour {
     }
 
     public void cargarSeleccionNivel() {
+
+        PlayerPrefs.SetString("NivelActual", SceneManager.GetActiveScene().name);
 
         SceneManager.LoadScene(seleccionNivel);
 
@@ -238,13 +240,13 @@ public class MenuPausa : MonoBehaviour {
 
         if (input < 0 && botonSeleccionado < botones.Length - 1) {
 
-            botonSeleccionado += 2;
-            //botonSeleccionado++;
+            //botonSeleccionado += 2;
+            botonSeleccionado++;
 
         } else if (input > 0 && botonSeleccionado > 0) {
 
-            botonSeleccionado -= 2;
-            //botonSeleccionado--;
+            //botonSeleccionado -= 2;
+            botonSeleccionado--;
         }
 
         yield return new WaitForSecondsRealtime(0.2f);

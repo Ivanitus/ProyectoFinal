@@ -14,6 +14,8 @@ public class GestorNivel : MonoBehaviour {
 
     public string siguienteNivel;
 
+    public float tiempoNivel;
+
     private void Awake() {
 
         instancia = this;
@@ -22,15 +24,17 @@ public class GestorNivel : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        
 
+        tiempoNivel = 0f;
 
     }
 
     // Update is called once per frame
     void Update() {
-        
 
+        tiempoNivel += Time.deltaTime; // Sumo al tiempo del nivel el deltatime
+
+        ControladorGUI.instancia.textoTiempo.text = tiempoNivel.ToString("F1") + "s";
 
     }
 
@@ -72,21 +76,51 @@ public class GestorNivel : MonoBehaviour {
 
     private IEnumerator finNivelCO() {
 
+        GestorAudio.instancia.reproducirMusicaFinNivel();
+
         ControladorJugador.instancia.pararInput = true; // Quito el control al usuario
 
         ControladorCamara.instancia.pararSeguimiento = true; // Paro el seguimiento de la cámara
 
         ControladorGUI.instancia.textoNivelCompletado.SetActive(true); // Muestro el texto de nivel completado
 
-        GestorAudio.instancia.musicaFondo.Stop();
-
-        GestorAudio.instancia.musicaFinalNivel.Play();
-
-        yield return new WaitForSeconds(2f); // Espero 1.5 segundos
+        yield return new WaitForSeconds(1.5f); // Espero 1.5 segundos
 
         ControladorGUI.instancia.transicinANegro(); // Hago la transición a negro
 
-        yield return new WaitForSeconds((1f / ControladorGUI.instancia.velocidadTransicion) + .25f); // Espero 1 segundo dividido por la velocidad de la transición + 0.25 segundos
+        yield return new WaitForSeconds((1f / ControladorGUI.instancia.velocidadTransicion) + 2f); // Espero 1 segundo dividido por la velocidad de la transición + 2 segundos
+
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_desbloqueado", 1);
+
+        PlayerPrefs.SetString("NivelActual", SceneManager.GetActiveScene().name);
+
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_gemas")) {
+
+            if (gemasRecogidas > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_gemas")) {
+
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_gemas", gemasRecogidas);
+
+            }
+
+        } else {
+
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_gemas", gemasRecogidas);
+
+        }
+
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_tiempo")) {
+
+            if (tiempoNivel < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + "_tiempo")) {
+
+                PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_tiempo", tiempoNivel);
+
+            }
+
+        } else {
+
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_tiempo", tiempoNivel);
+
+        }
 
         SceneManager.LoadScene(siguienteNivel); // Cargo el siguiente nivel
 

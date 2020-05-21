@@ -9,6 +9,8 @@ public class MenuPrincipal : MonoBehaviour {
 
     public string escenaInicial;
 
+    public string escenaContinuar;
+
     public string estaEscena;
 
     public Button[] botones;
@@ -24,7 +26,19 @@ public class MenuPrincipal : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
 
-        botonSeleccionado = 0;
+        if (PlayerPrefs.HasKey(escenaInicial + "_desbloqueado")) {
+
+            botones[0].gameObject.SetActive(true);
+
+            botonSeleccionado = 0;
+
+        } else {
+
+            botones[0].gameObject.SetActive(false);
+
+            botonSeleccionado = 1;
+
+        }
 
         puedeInteractuar = true;
 
@@ -45,18 +59,21 @@ public class MenuPrincipal : MonoBehaviour {
 
             try {
 
-                botones[botonSeleccionado].GetComponent<Button>().Select();
+                if (botones[botonSeleccionado].gameObject.activeSelf) {
+
+                    botones[botonSeleccionado].GetComponent<Button>().Select();
+
+                    botonSeleccionado++;
+
+                    if (botonSeleccionado == botones.Length) {
+
+                        botonSeleccionado = botones.Length - 1;
+
+                    }
+
+                }
 
             } catch (System.IndexOutOfRangeException e) {
-
-            }
-
-            botonSeleccionado +=2;
-            //botonSeleccionado++;
-
-            if (botonSeleccionado == botones.Length){
-
-                botonSeleccionado = botones.Length - 1;
 
             }
 
@@ -70,16 +87,19 @@ public class MenuPrincipal : MonoBehaviour {
 
             try {
 
-                botones[botonSeleccionado].GetComponent<Button>().Select();
+                if (botones[botonSeleccionado].gameObject.activeSelf) {
+
+                    botones[botonSeleccionado].GetComponent<Button>().Select();
+
+                    if (botonSeleccionado > 0) {
+
+                        botonSeleccionado--;
+
+                    }
+
+                }
 
             } catch (System.IndexOutOfRangeException e) {
-
-            }
-
-            if (botonSeleccionado > 0) {
-                
-                botonSeleccionado-=2;
-                //botonSeleccionado--;
 
             }
 
@@ -99,7 +119,11 @@ public class MenuPrincipal : MonoBehaviour {
 
         try {
 
-            botones[botonSeleccionado].GetComponent<Button>().Select();
+            if (botones[botonSeleccionado].gameObject.activeSelf) {
+
+                botones[botonSeleccionado].GetComponent<Button>().Select();
+
+            }
 
         } catch (System.IndexOutOfRangeException e) {
 
@@ -110,6 +134,14 @@ public class MenuPrincipal : MonoBehaviour {
     public void iniciarPartida() {
 
         SceneManager.LoadScene(escenaInicial);
+
+        PlayerPrefs.DeleteAll();
+
+    }
+
+    public void continuarPartida() {
+
+        SceneManager.LoadScene(escenaContinuar);
 
     }
 
@@ -163,15 +195,13 @@ public class MenuPrincipal : MonoBehaviour {
 
     private IEnumerator cambioMenu(int input){ // Corutina que me permite controlar el menu con el joystick del mando
 
-        if (input < 0 && botonSeleccionado < botones.Length - 1) {
+        if (input < 0 && botonSeleccionado < botones.Length - 1 && botones[botonSeleccionado].gameObject.activeSelf) {
 
-            botonSeleccionado+=2;
-            //botonSeleccionado++;
+            botonSeleccionado++;
 
-        } else if (input > 0 && botonSeleccionado > 0) {
+        } else if (input > 0 && botonSeleccionado > 0 && botones[botonSeleccionado].gameObject.activeSelf) {
 
-            botonSeleccionado-=2;
-            //botonSeleccionado--;
+            botonSeleccionado--;
         }
 
         yield return new WaitForSeconds(0.2f);
