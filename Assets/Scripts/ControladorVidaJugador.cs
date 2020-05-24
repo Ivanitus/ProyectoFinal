@@ -9,6 +9,8 @@ public class ControladorVidaJugador : MonoBehaviour {
 
     public int vidasActuales, vidasMaximas;
 
+    public int vidasJugadorActuales, vidasJugadorMaximas;
+
     public float tiempoInvencible; // Variable para definir el tiempo de invencibilidad del jugador una vez reciba daño
 
     private float contadorInvencible;
@@ -28,6 +30,8 @@ public class ControladorVidaJugador : MonoBehaviour {
     void Start() {
 
         vidasActuales = vidasMaximas;
+
+        vidasJugadorActuales = vidasJugadorMaximas;
 
         renderizador = GetComponent<SpriteRenderer>(); // Cargo el SpriteRenderer
 
@@ -56,20 +60,27 @@ public class ControladorVidaJugador : MonoBehaviour {
 
             vidasActuales--;
 
-            if (vidasActuales <= 0)
-            {
+            if (vidasActuales <= 0) {
 
                 vidasActuales = 0;
 
-                //gameObject.SetActive(false); //gameObject hace referencia al objeto al que está anclado el script
+                if (vidasJugadorActuales <= 0) {
 
-                Instantiate(efectoMuerte, transform.position, transform.rotation); // Creo una instancia del objeto efectoMuerte y le paso la posicion y rotacion del item
+                    Instantiate(efectoMuerte, transform.position, transform.rotation);
 
-                GestorNivel.instancia.RespawnearJugador();
+                    GestorNivel.instancia.muerteJugador();
 
-            }
-            else
-            {
+                } else {
+
+                    //gameObject.SetActive(false); //gameObject hace referencia al objeto al que está anclado el script
+
+                    Instantiate(efectoMuerte, transform.position, transform.rotation); // Creo una instancia del objeto efectoMuerte y le paso la posicion y rotacion del item
+
+                    GestorNivel.instancia.RespawnearJugador();
+
+                }
+
+            } else {
 
                 contadorInvencible = tiempoInvencible;
 
@@ -82,6 +93,8 @@ public class ControladorVidaJugador : MonoBehaviour {
             }
 
             ControladorGUI.instancia.actualizarVidasGUI(); // Llamo al metodo actualizarVidasGui() de la instancia de la clase ControladorGUI
+
+            ControladorGUI.instancia.actualizarVidasJugador();
 
         }
 

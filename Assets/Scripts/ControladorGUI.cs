@@ -10,7 +10,11 @@ public class ControladorGUI : MonoBehaviour {
 
     public Image corazonUno, corazonDos, corazonTres;
 
+    public Image zorroUno, zorroDos, zorroTres;
+
     public Sprite corazonLleno, corazonMedioLleno, corazonVacio;
+
+    public Sprite zorroVivo;
 
     public Text textoGemas;
 
@@ -123,6 +127,39 @@ public class ControladorGUI : MonoBehaviour {
                 corazonTres.sprite = corazonVacio;
                 break;
 
+        }
+
+    }
+
+    public void actualizarVidasJugador() {
+
+        switch(ControladorVidaJugador.instancia.vidasJugadorActuales) {
+
+            case 3:
+                zorroUno.sprite = zorroVivo;
+                zorroDos.sprite = zorroVivo;
+                zorroTres.sprite = zorroVivo;
+                break;
+            case 2:
+                zorroUno.sprite = zorroVivo;
+                zorroDos.sprite = zorroVivo;
+                zorroTres.gameObject.SetActive(false);
+                break;
+            case 1:
+                zorroUno.sprite = zorroVivo;
+                zorroDos.gameObject.SetActive(false);
+                zorroTres.gameObject.SetActive(false);
+                break;
+            case 0:
+                zorroUno.gameObject.SetActive(false);
+                zorroDos.gameObject.SetActive(false);
+                zorroTres.gameObject.SetActive(false);
+                break;
+            default:
+                zorroUno.gameObject.SetActive(false);
+                zorroDos.gameObject.SetActive(false);
+                zorroTres.gameObject.SetActive(false);
+                break;
         }
 
     }
