@@ -20,7 +20,15 @@ public class MatarJugador : MonoBehaviour {
 
             GestorAudio.instancia.reproducirSFX(8);
 
-            GestorNivel.instancia.RespawnearJugador();
+            if (ControladorVidaJugador.instancia.vidasJugadorActuales > 0) {
+
+                GestorNivel.instancia.RespawnearJugador();
+
+            } else {
+
+                GestorNivel.instancia.muerteJugador();
+
+            }
 
         }
 

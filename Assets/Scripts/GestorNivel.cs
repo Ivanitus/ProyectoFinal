@@ -64,7 +64,35 @@ public class GestorNivel : MonoBehaviour {
 
         ControladorVidaJugador.instancia.vidasActuales = ControladorVidaJugador.instancia.vidasMaximas;
 
+        ControladorVidaJugador.instancia.vidasJugadorActuales--;
+
         ControladorGUI.instancia.actualizarVidasGUI();
+
+        ControladorGUI.instancia.actualizarVidasJugador();
+
+    }
+
+    public void muerteJugador() {
+
+        StartCoroutine(muerteJugadorCO());
+
+    }
+
+    private IEnumerator muerteJugadorCO() {
+
+        ControladorJugador.instancia.gameObject.SetActive(false);
+
+        GestorAudio.instancia.reproducirSFX(8);
+
+        yield return new WaitForSeconds(tiempoEsperaRespawn - (1f / ControladorGUI.instancia.velocidadTransicion));
+
+        ControladorGUI.instancia.transicinANegro();
+
+        yield return new WaitForSeconds((1f / ControladorGUI.instancia.velocidadTransicion) + 2f);
+
+        PlayerPrefs.SetString("NivelActual", SceneManager.GetActiveScene().name);
+
+        SceneManager.LoadScene(MenuPausa.instancia.seleccionNivel);
 
     }
 
