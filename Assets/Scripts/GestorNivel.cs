@@ -16,6 +16,8 @@ public class GestorNivel : MonoBehaviour {
 
     public float tiempoNivel;
 
+    public AudioSource musicaFondo;
+
     private void Awake() {
 
         instancia = this;
@@ -26,6 +28,14 @@ public class GestorNivel : MonoBehaviour {
     void Start() {
 
         tiempoNivel = 0f;
+
+        if (PlayerPrefs.GetInt("MusicaActivada") == 1) {
+
+            musicaFondo.volume = PlayerPrefs.GetFloat("VolumenMusica");
+
+            musicaFondo.Play();
+
+        }
 
     }
 

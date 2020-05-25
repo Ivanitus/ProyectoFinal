@@ -23,8 +23,6 @@ public class GestorAudio : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-       
-        
 
     }
 
@@ -37,35 +35,59 @@ public class GestorAudio : MonoBehaviour {
 
     public void reproducirSFX(int sonidoAReproducir) {
 
-        efectosSonido[sonidoAReproducir].Stop(); // En el caso de que tengan que sonar varias veces el mismo sonido a la vez, necesitamos pararlos antes de volver a reproducirlo
+        if (PlayerPrefs.GetInt("EfectosActivados") == 1) {
 
-        efectosSonido[sonidoAReproducir].pitch = Random.Range(.85f, 1.15f); // Hago que el pitch cambie de forma aleatoria para que los efectos de sonido suenen distintos cada vez
+            efectosSonido[sonidoAReproducir].Stop(); // En el caso de que tengan que sonar varias veces el mismo sonido a la vez, necesitamos pararlos antes de volver a reproducirlo
 
-        efectosSonido[sonidoAReproducir].Play();
+            efectosSonido[sonidoAReproducir].pitch = Random.Range(.85f, 1.15f); // Hago que el pitch cambie de forma aleatoria para que los efectos de sonido suenen distintos cada vez
+
+            efectosSonido[sonidoAReproducir].volume = PlayerPrefs.GetFloat("VolumenSFX");
+
+            efectosSonido[sonidoAReproducir].Play();
+
+        }
 
     }
 
     public void reproducirMusicaFinNivel() {
 
-        musicaFondo.Stop();
+        if (PlayerPrefs.GetInt("MusicaActivada") == 1) {
 
-        musicaFinalNivel.Play();
+            musicaFondo.Stop();
+
+            musicaFinalNivel.volume = PlayerPrefs.GetFloat("VolumenMusica");
+
+            musicaFinalNivel.Play();
+
+        }
 
     }
 
     public void reproducirMusicaBoss() {
 
-        musicaFondo.Stop();
+        if (PlayerPrefs.GetInt("MusicaActivada") == 1) {
 
-        musicaBoss.Play();
+            musicaFondo.Stop();
+
+            musicaBoss.volume = PlayerPrefs.GetFloat("VolumenMusica");
+
+            musicaBoss.Play();
+
+        }
 
     }
 
     public void pararMusicaBoss() {
 
-        musicaBoss.Stop();
+        if (PlayerPrefs.GetInt("MusicaActivada") == 1) {
 
-        musicaFondo.Play();
+            musicaBoss.Stop();
+
+            musicaBoss.volume = PlayerPrefs.GetFloat("VolumenMusica");
+
+            musicaFondo.Play();
+
+        }
 
     }
 

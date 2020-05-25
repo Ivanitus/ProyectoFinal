@@ -13892,6 +13892,7 @@ MonoBehaviour:
   gemasRecogidas: 0
   siguienteNivel: PantallaVictoria
   tiempoNivel: 0
+  musicaFondo: {fileID: 8070342910372354051}
 --- !u!1 &8070342909324234941
 GameObject:
   m_ObjectHideFlags: 0
@@ -16088,7 +16089,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -976903626975352208, guid: 399e84b2bf8c7ff44b9fa816e81ca61e,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: bfaf43c0dfe33994fa2ce257ba1e2df6, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PantallaVictoria.unity
     guid: 28c105f1ac348de48ba17b8caef8ceba
+  - enabled: 1
+    path: Assets/Scenes/Menu_Ajustes.unity
+    guid: 8768c2e3c0d168f4882d8d2bddedccb5
   m_configObjects: {}

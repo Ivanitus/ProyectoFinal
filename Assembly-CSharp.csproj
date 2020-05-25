@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ActivadorBoss.cs" />
+    <Compile Include="Assets\Scripts\Ajustes.cs" />
     <Compile Include="Assets\Scripts\BalaBoss.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\Coger.cs" />
@@ -93,6 +94,11 @@
     <Compile Include="Assets\Scripts\PlataformaMovimiento.cs" />
     <Compile Include="Assets\Scripts\PuntoMapa.cs" />
     <Compile Include="Assets\Scripts\SalidaNivel.cs" />
+    <Compile Include="Assets\Scripts\SliderActivarEfectos.cs" />
+    <Compile Include="Assets\Scripts\SliderActivarMusica.cs" />
+    <Compile Include="Assets\Scripts\SliderMusica.cs" />
+    <Compile Include="Assets\Scripts\SliderSFX.cs" />
+    <Compile Include="Assets\Scripts\Sliders.cs" />
     <Compile Include="Assets\Scripts\Trampolin.cs" />
     <Compile Include="Assets\Scripts\Victoria.cs" />
     <Compile Include="Assets\Scripts\Volar.cs" />

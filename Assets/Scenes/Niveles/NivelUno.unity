@@ -12084,6 +12084,11 @@ PrefabInstance:
       propertyPath: siguienteNivel
       value: SeleccionNivel
       objectReference: {fileID: 0}
+    - target: {fileID: 8070342909767453732, guid: 2052d28e3c9ebf34ebcf49023e1696dd,
+        type: 3}
+      propertyPath: musicaFondo
+      value: 
+      objectReference: {fileID: 1923405586}
     - target: {fileID: 8070342910714540740, guid: 2052d28e3c9ebf34ebcf49023e1696dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12102,6 +12107,11 @@ PrefabInstance:
     - target: {fileID: 8070342910772424667, guid: 2052d28e3c9ebf34ebcf49023e1696dd,
         type: 3}
       propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070342910866031771, guid: 2052d28e3c9ebf34ebcf49023e1696dd,
+        type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8070342910970833682, guid: 2052d28e3c9ebf34ebcf49023e1696dd,
@@ -12171,6 +12181,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2052d28e3c9ebf34ebcf49023e1696dd, type: 3}
+--- !u!82 &1923405586 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8070342910866031771, guid: 2052d28e3c9ebf34ebcf49023e1696dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1923405585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1951041843
 PrefabInstance:
   m_ObjectHideFlags: 0

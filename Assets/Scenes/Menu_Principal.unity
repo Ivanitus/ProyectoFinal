@@ -723,6 +723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escenaInicial: NivelUno
   escenaContinuar: SeleccionNivel
+  escenaAjustes: Menu_Ajustes
   estaEscena: Menu_Principal
   botones:
   - {fileID: 9050937832377265133}
@@ -736,6 +737,7 @@ MonoBehaviour:
   imagenesMando:
   - {fileID: 911428270}
   - {fileID: 98843971}
+  musicaFondo: {fileID: 1426485990}
 --- !u!1 &534839379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,7 +1316,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -976903626975352208, guid: 399e84b2bf8c7ff44b9fa816e81ca61e,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 15bcbc8d5606b89408251fc0d5eb50b2, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -1913,7 +1915,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1820150401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 380951987}
+        m_MethodName: ajustesJuego
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1820150401
 MonoBehaviour:
   m_ObjectHideFlags: 0

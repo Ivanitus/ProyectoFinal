@@ -11,6 +11,8 @@ public class MenuPrincipal : MonoBehaviour {
 
     public string escenaContinuar;
 
+    public string escenaAjustes;
+
     public string estaEscena;
 
     public Button[] botones;
@@ -23,8 +25,42 @@ public class MenuPrincipal : MonoBehaviour {
 
     private bool puedeInteractuar;
 
+    public AudioSource musicaFondo;
+
     // Start is called before the first frame update
     void Start() {
+
+        if (!PlayerPrefs.HasKey("VolumenMusica")) {
+
+            PlayerPrefs.SetFloat("VolumenMusica", 1f);
+
+        }
+
+        if (!PlayerPrefs.HasKey("VolumenSFX")) {
+
+            PlayerPrefs.SetFloat("VolumenSFX", 1f);
+
+        }
+
+        if (!PlayerPrefs.HasKey("MusicaActivada")) {
+
+            PlayerPrefs.SetInt("MusicaActivada", 1);
+
+        }
+
+        if (!PlayerPrefs.HasKey("EfectosActivados")) {
+
+            PlayerPrefs.SetInt("EfectosActivados", 1);
+
+        }
+
+        if (PlayerPrefs.GetInt("MusicaActivada") == 1) {
+
+            musicaFondo.volume = PlayerPrefs.GetFloat("VolumenMusica");
+
+            musicaFondo.Play();
+
+        }
 
         if (PlayerPrefs.HasKey(escenaInicial + "_desbloqueado")) {
 
@@ -32,7 +68,7 @@ public class MenuPrincipal : MonoBehaviour {
 
             botonSeleccionado = 0;
 
-        } else {
+        } else if (estaEscena == "Menu_Principal") {
 
             botones[0].gameObject.SetActive(false);
 
@@ -42,7 +78,15 @@ public class MenuPrincipal : MonoBehaviour {
 
         puedeInteractuar = true;
 
-        Cursor.visible = false;
+        if (estaEscena == "Menu_Ajustes") {
+
+            Cursor.visible = true;
+
+        } else {
+
+            Cursor.visible = false;
+
+        }
 
     }
 
@@ -135,13 +179,54 @@ public class MenuPrincipal : MonoBehaviour {
 
         SceneManager.LoadScene(escenaInicial);
 
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("NivelActual");
+
+        PlayerPrefs.DeleteKey("NivelUno_gemas");
+        PlayerPrefs.DeleteKey("NivelUno_tiempo");
+
+        PlayerPrefs.DeleteKey("NivelDos_gemas");
+        PlayerPrefs.DeleteKey("NivelDos_tiempo");
+
+        PlayerPrefs.DeleteKey("NivelTres_gemas");
+        PlayerPrefs.DeleteKey("NivelTres_tiempo");
+
+        PlayerPrefs.DeleteKey("NivelCuatro_gemas");
+        PlayerPrefs.DeleteKey("NivelCuatro_tiempo");
+
+        PlayerPrefs.DeleteKey("NivelCinco_gemas");
+        PlayerPrefs.DeleteKey("NivelCinco_tiempo");
+
+        PlayerPrefs.DeleteKey("NivelSeos_gemas");
+        PlayerPrefs.DeleteKey("NivelSeis_tiempo");
+
+        PlayerPrefs.DeleteKey("NivelBoss_gemas");
+        PlayerPrefs.DeleteKey("NivelBoss_tiempo");
+
+        PlayerPrefs.DeleteKey("NivelUno_desbloqueado");
+
+        PlayerPrefs.DeleteKey("NivelDos_desbloqueado");
+
+        PlayerPrefs.DeleteKey("NivelTres_desbloqueado");
+
+        PlayerPrefs.DeleteKey("NivelCuatro_desbloqueado");
+
+        PlayerPrefs.DeleteKey("NivelCinco_desbloqueado");
+
+        PlayerPrefs.DeleteKey("NivelSeis_desbloqueado");
+
+        PlayerPrefs.DeleteKey("NivelBoss_desbloqueado");
 
     }
 
     public void continuarPartida() {
 
         SceneManager.LoadScene(escenaContinuar);
+
+    }
+
+    public void ajustesJuego() {
+
+        SceneManager.LoadScene(escenaAjustes);
 
     }
 

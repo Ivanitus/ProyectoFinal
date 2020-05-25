@@ -723,7 +723,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escenaInicial: NivelUno
   escenaContinuar: SeleccionNivel
-  estaEscena: Menu_Principal
+  escenaAjustes: Menu_Ajustes
+  estaEscena: PantallaVictoria
   botones:
   - {fileID: 1364746137}
   imagenesTeclado:

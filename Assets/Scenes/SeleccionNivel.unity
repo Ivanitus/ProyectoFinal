@@ -15449,7 +15449,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -976903626975352208, guid: 399e84b2bf8c7ff44b9fa816e81ca61e,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: cd314f7a16f19fc44a359fdf4811fb19, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -15592,6 +15592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 1667026076}
+  musicaFondo: {fileID: 1311599079}
 --- !u!1 &1628049574
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,18 @@ public class GestorSeleccionNivel : MonoBehaviour {
 
     private PuntoMapa[] puntos;
 
+    public AudioSource musicaFondo;
+
     // Start is called before the first frame update
     void Start() {
+
+        if (PlayerPrefs.GetInt("MusicaActivada") == 1) {
+
+            musicaFondo.volume = PlayerPrefs.GetFloat("VolumenMusica");
+
+            musicaFondo.Play();
+
+        }
 
         puntos = FindObjectsOfType<PuntoMapa>();
 
