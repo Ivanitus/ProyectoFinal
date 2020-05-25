@@ -13890,7 +13890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiempoEsperaRespawn: 1
   gemasRecogidas: 0
-  siguienteNivel: Menu_Principal
+  siguienteNivel: PantallaVictoria
   tiempoNivel: 0
 --- !u!1 &8070342909324234941
 GameObject:

@@ -2091,7 +2091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6d5c56f6244dc4684c5007829690ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posicionMinima: {x: 0, y: -5.25}
+  posicionMinima: {x: 0, y: -7}
   posicionMaxima: {x: 14, y: -0.25}
   objetivo: {fileID: 1667026075}
 --- !u!114 &467353653 stripped

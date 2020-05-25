@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\PuntoMapa.cs" />
     <Compile Include="Assets\Scripts\SalidaNivel.cs" />
     <Compile Include="Assets\Scripts\Trampolin.cs" />
+    <Compile Include="Assets\Scripts\Victoria.cs" />
     <Compile Include="Assets\Scripts\Volar.cs" />
     <Compile Include="Assets\Scripts\ZonaPisada.cs" />
     <None Include="Assets\Controles\Creditos.txt" />

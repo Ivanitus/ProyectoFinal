@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Niveles/NivelBoss.unity
     guid: 20174a713231797409c6dc3e8357c75b
+  - enabled: 1
+    path: Assets/Scenes/PantallaVictoria.unity
+    guid: 28c105f1ac348de48ba17b8caef8ceba
   m_configObjects: {}
