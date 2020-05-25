@@ -13,6 +13,8 @@ public class GestorAudio : MonoBehaviour {
 
     public AudioSource musicaFinalNivel;
 
+    public AudioSource musicaBoss;
+
     private void Awake() {
 
         instancia = this;
@@ -48,6 +50,22 @@ public class GestorAudio : MonoBehaviour {
         musicaFondo.Stop();
 
         musicaFinalNivel.Play();
+
+    }
+
+    public void reproducirMusicaBoss() {
+
+        musicaFondo.Stop();
+
+        musicaBoss.Play();
+
+    }
+
+    public void pararMusicaBoss() {
+
+        musicaBoss.Stop();
+
+        musicaFondo.Play();
 
     }
 
