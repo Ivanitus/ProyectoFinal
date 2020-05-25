@@ -2540,12 +2540,12 @@ PrefabInstance:
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: gemasTotales
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: tiempoObjetivo
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}

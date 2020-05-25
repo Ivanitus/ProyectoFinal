@@ -29,6 +29,12 @@ public class ActivadorBoss : MonoBehaviour {
 
             gameObject.SetActive(false);
 
+            ControladorVidaJugador.instancia.vidasJugadorActuales = 1;
+
+            ControladorGUI.instancia.actualizarVidasJugador();
+
+            ControladorGUIBatallaFinal.instancia.activarImagenesTexto();
+
             GestorAudio.instancia.reproducirMusicaBoss();
 
         }

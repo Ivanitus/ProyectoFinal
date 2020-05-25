@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\ControladorEnemigo.cs" />
     <Compile Include="Assets\Scripts\ControladorEnemigoVolador.cs" />
     <Compile Include="Assets\Scripts\ControladorGUI.cs" />
+    <Compile Include="Assets\Scripts\ControladorGUIBatallaFinal.cs" />
     <Compile Include="Assets\Scripts\ControladorGUISN.cs" />
     <Compile Include="Assets\Scripts\ControladorJugador.cs" />
     <Compile Include="Assets\Scripts\ControladorVidaJugador.cs" />

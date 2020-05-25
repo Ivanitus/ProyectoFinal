@@ -5,6 +5,8 @@ using UnityEngine;
 // Clase para controlar el Boss final (tanque)
 public class ControladorBossTanque : MonoBehaviour {
 
+    public static ControladorBossTanque instancia;
+
     public enum estadosBoss { DISPARANDO, DANADO, MOVIENDO, FINALIZADO }; // estados del boss (Disparando=quieto y/o disparando, DANADO=recibe daño, MOVIENDO=se mueve)
     public estadosBoss estadoActual;
 
@@ -45,7 +47,14 @@ public class ControladorBossTanque : MonoBehaviour {
     public GameObject explosion, plataformasVictoria;
     private bool derrotado;
     public float aumentarVelocidadDisparos, aumentarVelocidadMinas;
+    public GameObject[] gemas;
+    public Transform puntoAparicionGemas;
 
+    private void Awake() {
+
+        instancia = this;
+
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -96,6 +105,8 @@ public class ControladorBossTanque : MonoBehaviour {
                             plataformasVictoria.SetActive(true);
 
                             GestorAudio.instancia.pararMusicaBoss();
+
+                            aparecerGemas();
 
                             estadoActual = estadosBoss.FINALIZADO;
 
@@ -204,6 +215,8 @@ public class ControladorBossTanque : MonoBehaviour {
 
         }
 
+        ControladorGUIBatallaFinal.instancia.actualizarGUIBatallaFinal();
+
     }
 
     private void finalizarMovimiento() {
@@ -215,6 +228,18 @@ public class ControladorBossTanque : MonoBehaviour {
         animador.SetTrigger("PararMovimiento");
 
         hitbox.SetActive(true);
+
+    }
+
+    private void aparecerGemas() {
+
+        for(int i = 0; i < gemas.Length; i++) {
+
+            Instantiate(gemas[i], puntoAparicionGemas.position, puntoAparicionGemas.rotation);
+
+            puntoAparicionGemas.position = new Vector3(puntoAparicionGemas.position.x + .35f, puntoAparicionGemas.position.y, puntoAparicionGemas.position.z);
+
+        }
 
     }
 
