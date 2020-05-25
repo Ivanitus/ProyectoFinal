@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ActivadorBoss.cs" />
     <Compile Include="Assets\Scripts\BalaBoss.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\Coger.cs" />
@@ -80,11 +81,13 @@
     <Compile Include="Assets\Scripts\GestorAudio.cs" />
     <Compile Include="Assets\Scripts\GestorNivel.cs" />
     <Compile Include="Assets\Scripts\GestorSeleccionNivel.cs" />
+    <Compile Include="Assets\Scripts\HitboxBossTanque.cs" />
     <Compile Include="Assets\Scripts\JugadorSN.cs" />
     <Compile Include="Assets\Scripts\Machacador.cs" />
     <Compile Include="Assets\Scripts\MatarJugador.cs" />
     <Compile Include="Assets\Scripts\MenuPausa.cs" />
     <Compile Include="Assets\Scripts\MenuPrincipal.cs" />
+    <Compile Include="Assets\Scripts\MinaBossTanque.cs" />
     <Compile Include="Assets\Scripts\Palanca.cs" />
     <Compile Include="Assets\Scripts\PlataformaMovimiento.cs" />
     <Compile Include="Assets\Scripts\PuntoMapa.cs" />

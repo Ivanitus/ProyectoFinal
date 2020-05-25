@@ -9,8 +9,8 @@ public class BalaBoss : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-       
-        
+
+        GestorAudio.instancia.reproducirSFX(2);
 
     }
 
@@ -28,6 +28,8 @@ public class BalaBoss : MonoBehaviour {
             ControladorVidaJugador.instancia.hacerDano();
 
         }
+
+        GestorAudio.instancia.reproducirSFX(1);
 
         Destroy(gameObject);
 

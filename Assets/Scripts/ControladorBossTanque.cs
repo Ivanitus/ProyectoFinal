@@ -5,7 +5,7 @@ using UnityEngine;
 // Clase para controlar el Boss final (tanque)
 public class ControladorBossTanque : MonoBehaviour {
 
-    public enum estadosBoss { DISPARANDO, DANADO, MOVIENDO }; // estados del boss (Disparando=quieto y/o disparando, DANADO=recibe daño, MOVIENDO=se mueve)
+    public enum estadosBoss { DISPARANDO, DANADO, MOVIENDO, FINALIZADO }; // estados del boss (Disparando=quieto y/o disparando, DANADO=recibe daño, MOVIENDO=se mueve)
     public estadosBoss estadoActual;
 
     // Variables jefe
@@ -19,6 +19,13 @@ public class ControladorBossTanque : MonoBehaviour {
     public Transform puntoIzquierda, puntoDerecha;
     private bool moverDerecha;
 
+    // Variables minas
+    [Header("Minas")]
+    public GameObject mina;
+    public Transform puntoMina;
+    public float tiempoEntreMinas;
+    private float contadorMinas;
+
     // Variables disparos
     [Header("Disparos")]
     public GameObject balas;
@@ -30,6 +37,15 @@ public class ControladorBossTanque : MonoBehaviour {
     [Header("Recibir daño")]
     public float tiempoDano;
     private float contadorDano;
+    public GameObject hitbox;
+
+    // Variables vida
+    [Header("Vida")]
+    public int vida;
+    public GameObject explosion, plataformasVictoria;
+    private bool derrotado;
+    public float aumentarVelocidadDisparos, aumentarVelocidadMinas;
+
 
     // Start is called before the first frame update
     void Start() {
@@ -44,6 +60,19 @@ public class ControladorBossTanque : MonoBehaviour {
         switch(estadoActual) {
 
             case estadosBoss.DISPARANDO:
+
+                contadorDisparo -= Time.deltaTime;
+
+                if (contadorDisparo <= 0) {
+
+                    contadorDisparo = tiempoEntreDisparos;
+
+                    var nuevaBala = Instantiate(balas, puntoDisparo.position, puntoDisparo.rotation); // var es un tipo que solo se puede usar como variable local dentro de un metodo
+
+                    nuevaBala.transform.localScale = boss.localScale;
+
+                }
+
                 break;
 
             case estadosBoss.DANADO:
@@ -55,6 +84,22 @@ public class ControladorBossTanque : MonoBehaviour {
                     if (contadorDano <= 0) {
 
                         estadoActual = estadosBoss.MOVIENDO;
+
+                        contadorMinas = 0;
+
+                        if (derrotado) {
+
+                            boss.gameObject.SetActive(false);
+
+                            Instantiate(explosion, boss.position, boss.rotation);
+
+                            plataformasVictoria.SetActive(true);
+
+                            GestorAudio.instancia.pararMusicaBoss();
+
+                            estadoActual = estadosBoss.FINALIZADO;
+
+                        }
 
                     }
 
@@ -94,6 +139,16 @@ public class ControladorBossTanque : MonoBehaviour {
 
                 }
 
+                contadorMinas -= Time.deltaTime;
+
+                if (contadorMinas <= 0) {
+
+                    contadorMinas = tiempoEntreMinas;
+
+                    Instantiate(mina, puntoMina.position, puntoMina.rotation);
+
+                }
+
                 break;
 
             default:
@@ -121,15 +176,45 @@ public class ControladorBossTanque : MonoBehaviour {
 
         animador.SetTrigger("Danado");
 
+        GestorAudio.instancia.reproducirSFX(0);
+
+        MinaBossTanque[] minas = FindObjectsOfType<MinaBossTanque>();
+
+        if (minas.Length > 0) {
+
+            for (int i = 0; i < minas.Length; i++) {
+
+                minas[i].explotar();
+
+            }
+
+        }
+
+        vida--;
+
+        if (vida <= 0) {
+
+            derrotado = true;
+
+        } else {
+
+            tiempoEntreDisparos /= aumentarVelocidadDisparos;
+
+            tiempoEntreMinas /= aumentarVelocidadMinas;
+
+        }
+
     }
 
     private void finalizarMovimiento() {
 
         estadoActual = estadosBoss.DISPARANDO;
 
-        contadorDisparo = tiempoEntreDisparos;
+        contadorDisparo = 0f;
 
         animador.SetTrigger("PararMovimiento");
+
+        hitbox.SetActive(true);
 
     }
 
