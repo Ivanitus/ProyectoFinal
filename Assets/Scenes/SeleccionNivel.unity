@@ -2266,6 +2266,21 @@ PrefabInstance:
       propertyPath: abajo
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
+        type: 3}
+      propertyPath: nombreNivelUsuario
+      value: '3: Plataformas y Trampolines'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
+        type: 3}
+      propertyPath: gemasTotales
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
+        type: 3}
+      propertyPath: tiempoObjetivo
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 6458999565051397525, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: m_Name
