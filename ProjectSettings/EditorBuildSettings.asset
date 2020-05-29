@@ -9,27 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu_Principal.unity
     guid: e8f1d32c52499b447b7a132caf4650d0
   - enabled: 1
+    path: Assets/Scenes/Menu_Ajustes.unity
+    guid: 8768c2e3c0d168f4882d8d2bddedccb5
+  - enabled: 1
     path: Assets/Scenes/Pruebas2.unity
     guid: 4f73b8ac45f7fe24da0399d095a92e29
-  - enabled: 1
-    path: Assets/Scenes/Niveles/NivelDos.unity
-    guid: d767934ce473c5048a1c4f6549902153
-  - enabled: 1
-    path: Assets/Scenes/Niveles/NivelUno.unity
-    guid: 08020c5411103ce4fa15fd6a1b5e70c3
   - enabled: 1
     path: Assets/Scenes/SeleccionNivel.unity
     guid: c12c4465ca590f1438545e247c3be862
   - enabled: 1
+    path: Assets/Scenes/Niveles/NivelUno.unity
+    guid: 08020c5411103ce4fa15fd6a1b5e70c3
+  - enabled: 1
+    path: Assets/Scenes/Niveles/NivelDos.unity
+    guid: d767934ce473c5048a1c4f6549902153
+  - enabled: 1
     path: Assets/Scenes/Niveles/NivelTres.unity
     guid: b82e31867f3e1ec4dab955ebceb87742
+  - enabled: 1
+    path: Assets/Scenes/Niveles/NivelCuatro.unity
+    guid: 524d665a6ede2e64b8d057f81de3521f
   - enabled: 1
     path: Assets/Scenes/Niveles/NivelBoss.unity
     guid: 20174a713231797409c6dc3e8357c75b
   - enabled: 1
     path: Assets/Scenes/PantallaVictoria.unity
     guid: 28c105f1ac348de48ba17b8caef8ceba
-  - enabled: 1
-    path: Assets/Scenes/Menu_Ajustes.unity
-    guid: 8768c2e3c0d168f4882d8d2bddedccb5
   m_configObjects: {}

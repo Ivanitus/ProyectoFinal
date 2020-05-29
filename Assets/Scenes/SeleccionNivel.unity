@@ -15323,12 +15323,12 @@ PrefabInstance:
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: nombreNivel
-      value: 
+      value: NivelCuatro
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: nivelComprobar
-      value: 
+      value: NivelTres
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
@@ -15354,6 +15354,11 @@ PrefabInstance:
         type: 3}
       propertyPath: gemasRecogidas
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
+        type: 3}
+      propertyPath: bloqueado
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6458999565051397525, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
