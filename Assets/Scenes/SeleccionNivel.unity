@@ -2279,7 +2279,7 @@ PrefabInstance:
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: tiempoObjetivo
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6458999565051397525, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
@@ -2545,7 +2545,7 @@ PrefabInstance:
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: nivelComprobar
-      value: NivelUno
+      value: NivelSeis
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
@@ -15338,17 +15338,17 @@ PrefabInstance:
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: nombreNivelUsuario
-      value: 
+      value: '4: Aguilas y Secretos'
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: tiempoObjetivo
-      value: 0
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: gemasTotales
-      value: 0
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
@@ -15972,27 +15972,27 @@ PrefabInstance:
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: nombreNivel
-      value: 
+      value: NivelCinco
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: nivelComprobar
-      value: 
+      value: NivelCuatro
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: nombreNivelUsuario
-      value: 
+      value: '5: Con altura'
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: gemasTotales
-      value: 0
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: tiempoObjetivo
-      value: 0
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
@@ -16109,27 +16109,27 @@ PrefabInstance:
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: nombreNivel
-      value: 
+      value: NivelSeis
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: nivelComprobar
-      value: 
+      value: NivelCuatro
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: nombreNivelUsuario
-      value: 
+      value: '6: Las catacumbas del bosque'
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: gemasTotales
-      value: 0
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
       propertyPath: tiempoObjetivo
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4149853214865842535, guid: 78c2c68335217154abe526b480ec8df0,
         type: 3}
