@@ -734,6 +734,7 @@ MonoBehaviour:
   imagenesMando:
   - {fileID: 911428270}
   - {fileID: 98843971}
+  musicaFondo: {fileID: 1426485990}
 --- !u!114 &380951988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,7 +1399,7 @@ GameObject:
   - component: {fileID: 1426485991}
   - component: {fileID: 1426485990}
   m_Layer: 0
-  m_Name: Musica Menu
+  m_Name: Musica Victoria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1415,7 +1416,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -976903626975352208, guid: 399e84b2bf8c7ff44b9fa816e81ca61e,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 15bcbc8d5606b89408251fc0d5eb50b2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: faec1ff30a32ede43a9835dce197f851, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

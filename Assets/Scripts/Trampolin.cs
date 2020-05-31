@@ -27,6 +27,8 @@ public class Trampolin : MonoBehaviour {
         
         if (collision.CompareTag("Player")) {
 
+            GestorAudio.instancia.reproducirSFX(10);
+
             ControladorJugador.instancia.rigidbody.velocity = new Vector2(ControladorJugador.instancia.rigidbody.velocity.x, fuerzaRebote);
 
             animador.SetTrigger("Rebotar");
