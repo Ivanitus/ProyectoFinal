@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // Clase para controlar el menu de pausa
-public class MenuPausa : MonoBehaviour {
+public class MenuPausa : Menus {
 
     public static MenuPausa instancia;
 
@@ -14,14 +14,6 @@ public class MenuPausa : MonoBehaviour {
     public GameObject pantallaPausa;
 
     public bool pausado;
-
-    public Button[] botones;
-
-    public Image[] imagenesTeclado;
-
-    public Image[] imagenesMando;
-
-    private int botonSeleccionado;
 
     private bool puedeInteractuar;
 
@@ -37,8 +29,6 @@ public class MenuPausa : MonoBehaviour {
         botonSeleccionado = 0;
 
         puedeInteractuar = true;
-
-        Cursor.visible = false;
 
     }
 
@@ -77,7 +67,7 @@ public class MenuPausa : MonoBehaviour {
 
                 try {
 
-                    botones[botonSeleccionado].GetComponent<Button>().Select();
+                    seleccionar();
 
                 } catch (System.IndexOutOfRangeException e) {
 
@@ -102,7 +92,7 @@ public class MenuPausa : MonoBehaviour {
 
                 try {
 
-                    botones[botonSeleccionado].GetComponent<Button>().Select();
+                    seleccionar();
 
                 } catch (System.IndexOutOfRangeException e) {
 
@@ -131,7 +121,7 @@ public class MenuPausa : MonoBehaviour {
 
             try {
 
-                botones[botonSeleccionado].GetComponent<Button>().Select();
+                seleccionar();
 
             } catch (System.IndexOutOfRangeException e) {
 
@@ -173,7 +163,7 @@ public class MenuPausa : MonoBehaviour {
 
     }
 
-    public void cargarMenu() { 
+    public void cargarMenu() {
 
         SceneManager.LoadScene(menu);
 
@@ -187,7 +177,7 @@ public class MenuPausa : MonoBehaviour {
 
         try {
 
-            botones[botonSeleccionado].GetComponent<Button>().Select();
+            seleccionar();
 
         } catch (System.IndexOutOfRangeException e) {
 
@@ -195,57 +185,14 @@ public class MenuPausa : MonoBehaviour {
 
     }
 
-    private void desactivarImagenesTeclado() {
-
-        for (int i = 0; i < imagenesTeclado.Length; i++) {
-
-            imagenesTeclado[i].gameObject.SetActive(false);
-
-        }
-
-    }
-
-    private void activarImagenesTeclado() {
-
-        for (int i = 0; i < imagenesTeclado.Length; i++) {
-
-            imagenesTeclado[i].gameObject.SetActive(true);
-
-        }
-
-    }
-
-    private void desactivarImagenesMando() {
-
-        for (int i = 0; i < imagenesMando.Length; i++) {
-
-            imagenesMando[i].gameObject.SetActive(false);
-
-        }
-
-    }
-
-    private void activarImagenesMando() {
-
-        for (int i = 0; i < imagenesMando.Length; i++) {
-
-            imagenesMando[i].gameObject.SetActive(true);
-
-        }
-
-    }
-
-
     private IEnumerator cambioMenu(int input) { // Corutina que me permite controlar el menu con el joystick del mando
 
         if (input < 0 && botonSeleccionado < botones.Length - 1) {
 
-            //botonSeleccionado += 2;
             botonSeleccionado++;
 
         } else if (input > 0 && botonSeleccionado > 0) {
 
-            //botonSeleccionado -= 2;
             botonSeleccionado--;
         }
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // Clase para controlar el menu principal del juego
-public class MenuPrincipal : MonoBehaviour {
+public class MenuPrincipal : Menus {
 
     public string escenaInicial;
 
@@ -15,17 +15,9 @@ public class MenuPrincipal : MonoBehaviour {
 
     public string estaEscena;
 
-    public Button[] botones;
-
-    public Image[] imagenesTeclado;
-
-    public Image[] imagenesMando;
-
-    private int botonSeleccionado;
+    public AudioSource musicaFondo;
 
     private bool puedeInteractuar;
-
-    public AudioSource musicaFondo;
 
     // Start is called before the first frame update
     void Start() {
@@ -78,16 +70,6 @@ public class MenuPrincipal : MonoBehaviour {
 
         puedeInteractuar = true;
 
-        if (estaEscena == "Menu_Ajustes") {
-
-            Cursor.visible = true;
-
-        } else {
-
-            Cursor.visible = false;
-
-        }
-
     }
 
     // Update is called once per frame
@@ -105,7 +87,7 @@ public class MenuPrincipal : MonoBehaviour {
 
                 if (botones[botonSeleccionado].gameObject.activeSelf) {
 
-                    botones[botonSeleccionado].GetComponent<Button>().Select();
+                    seleccionar();
 
                     botonSeleccionado++;
 
@@ -133,7 +115,7 @@ public class MenuPrincipal : MonoBehaviour {
 
                 if (botones[botonSeleccionado].gameObject.activeSelf) {
 
-                    botones[botonSeleccionado].GetComponent<Button>().Select();
+                    seleccionar();
 
                     if (botonSeleccionado > 0) {
 
@@ -149,25 +131,11 @@ public class MenuPrincipal : MonoBehaviour {
 
         }
 
-        if (VerticalInput != 0 && puedeInteractuar) { // Compruebo si se usa el joystick del mando
-
-            desactivarImagenesTeclado();
-
-            activarImagenesMando();
-
-            puedeInteractuar = false;
-
-            StartCoroutine(cambioMenu(VerticalInput));
-
-        }
+        usarJoystick(VerticalInput);
 
         try {
 
-            if (botones[botonSeleccionado].gameObject.activeSelf) {
-
-                botones[botonSeleccionado].GetComponent<Button>().Select();
-
-            }
+            seleccionar();
 
         } catch (System.IndexOutOfRangeException e) {
 
@@ -237,56 +205,32 @@ public class MenuPrincipal : MonoBehaviour {
 
     }
 
-    private void desactivarImagenesTeclado() {
+    private void usarJoystick(int verticalInput) {
 
-        for (int i = 0; i<imagenesTeclado.Length; i++) {
+        if (verticalInput != 0 && puedeInteractuar) { // Compruebo si se usa el joystick del mando
 
-            imagenesTeclado[i].gameObject.SetActive(false);
+            desactivarImagenesTeclado();
 
-        }
+            activarImagenesMando();
 
-    }
+            puedeInteractuar = false;
 
-    private void activarImagenesTeclado() {
-
-        for (int i = 0; i < imagenesTeclado.Length; i++) {
-
-            imagenesTeclado[i].gameObject.SetActive(true);
+            StartCoroutine(cambioMenu(verticalInput));
 
         }
 
     }
 
-    private void desactivarImagenesMando() {
+    private IEnumerator cambioMenu(int input) { // Corutina que me permite controlar el menu con el joystick del mando
 
-        for (int i = 0; i < imagenesMando.Length; i++) {
-
-            imagenesMando[i].gameObject.SetActive(false);
-
-        }
-
-    }
-
-    private void activarImagenesMando() {
-
-        for (int i = 0; i < imagenesMando.Length; i++) {
-
-            imagenesMando[i].gameObject.SetActive(true);
-
-        }
-
-    }
-
-
-    private IEnumerator cambioMenu(int input){ // Corutina que me permite controlar el menu con el joystick del mando
-
-        if (input < 0 && botonSeleccionado < botones.Length - 1 && botones[botonSeleccionado].gameObject.activeSelf) {
+        if (input < 0 && botonSeleccionado < botones.Length - 1) {
 
             botonSeleccionado++;
 
-        } else if (input > 0 && botonSeleccionado > 0 && botones[botonSeleccionado].gameObject.activeSelf) {
+        } else if (input > 0 && botonSeleccionado > 0) {
 
             botonSeleccionado--;
+
         }
 
         yield return new WaitForSeconds(0.2f);

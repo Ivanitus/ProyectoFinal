@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\MatarJugador.cs" />
     <Compile Include="Assets\Scripts\MenuPausa.cs" />
     <Compile Include="Assets\Scripts\MenuPrincipal.cs" />
+    <Compile Include="Assets\Scripts\Menus.cs" />
     <Compile Include="Assets\Scripts\MinaBossTanque.cs" />
     <Compile Include="Assets\Scripts\Palanca.cs" />
     <Compile Include="Assets\Scripts\PlataformaMovimiento.cs" />
