@@ -20,7 +20,7 @@ public class PuntoMapa : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         
-        if (puntoNivel && nombreNivel != null) {
+        if (puntoNivel && nombreNivel != null) { // si es un punto de nivel
 
             if (PlayerPrefs.HasKey(nombreNivel + "_gemas")) {
 

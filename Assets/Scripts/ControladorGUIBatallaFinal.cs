@@ -30,6 +30,7 @@ public class ControladorGUIBatallaFinal : MonoBehaviour {
         
     }
 
+    // Metodo para activar las vidas y el nombre del boss en la interfaz grafica
     public void activarImagenesTexto() {
 
         tanqueUno.gameObject.SetActive(true);
@@ -45,6 +46,7 @@ public class ControladorGUIBatallaFinal : MonoBehaviour {
 
     public void actualizarGUIBatallaFinal() {
 
+        // actualizo las vidas del tanque
         switch(ControladorBossTanque.instancia.vida) {
 
             case 6:

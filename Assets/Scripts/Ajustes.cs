@@ -20,9 +20,10 @@ public class Ajustes : MonoBehaviour {
 
     }
 
+    // este metodo se ejecuta al darle al boton para volver al menu principal. Se guardan los ajustes.
     public void menuPrincipal() {
 
-        SliderSFX.instancia.escribirDatos();
+        SliderSFX.instancia.escribirDatos(); 
 
         SliderMusica.instancia.escribirDatos();
 
@@ -30,7 +31,7 @@ public class Ajustes : MonoBehaviour {
 
         SliderActivarEfectos.instancia.escribirDatos();
 
-        SceneManager.LoadScene(menuPrincipalEscena);
+        SceneManager.LoadScene(menuPrincipalEscena); // cargo el menu principal
 
     }
 

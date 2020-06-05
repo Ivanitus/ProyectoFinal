@@ -25,9 +25,9 @@ public class Machacador : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         
-        if (!machacando && !reseteando) {
+        if (!machacando && !reseteando) { // si no esta cayendo ni reseteando
 
-            if (Vector3.Distance(objetivoMachacador.position, ControladorJugador.instancia.transform.position) < 2f) { 
+            if (Vector3.Distance(objetivoMachacador.position, ControladorJugador.instancia.transform.position) < 2f) { // si la distancia es menor de 2 con el jugador
 
                 machacando = true;
 
@@ -37,9 +37,9 @@ public class Machacador : MonoBehaviour {
 
         }
 
-        if (machacando) {
+        if (machacando) { // si esta cayendo
 
-            machacador.position = Vector3.MoveTowards(machacador.position, objetivoMachacador.position, velocidadMachacar * Time.deltaTime);
+            machacador.position = Vector3.MoveTowards(machacador.position, objetivoMachacador.position, velocidadMachacar * Time.deltaTime); // movemos el machacador hacia el objetivo
 
             if (machacador.position == objetivoMachacador.position) {
 
@@ -57,7 +57,7 @@ public class Machacador : MonoBehaviour {
 
         }
 
-        if (reseteando) {
+        if (reseteando) { // si esta reseteando
 
             machacador.position = Vector3.MoveTowards(machacador.position, puntoInicio, velocidadReseteo * Time.deltaTime);
 

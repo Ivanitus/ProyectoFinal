@@ -25,15 +25,13 @@ public class Checkpoint : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         
-        if (collision.CompareTag("Player")) {
+        if (collision.CompareTag("Player")) { // si lo toca el jugador, se activa el checkpoint
 
-            ControladorCheckpoint.instancia.desactivarCheckpoints();
+            ControladorCheckpoint.instancia.desactivarCheckpoints(); // primero desactivo todos los checkpoints
 
-            renderizador.sprite = checkpointActivo;
+            renderizador.sprite = checkpointActivo; // activo el checkpoint
 
-            ControladorCheckpoint.instancia.guardarPuntoSpawn(transform.position);
-
-            //GestorAudio.instancia.reproducirSFX(12);
+            ControladorCheckpoint.instancia.guardarPuntoSpawn(transform.position); // se guarda el punto de spawn
 
         }
 

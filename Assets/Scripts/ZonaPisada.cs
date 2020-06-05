@@ -26,13 +26,13 @@ public class ZonaPisada : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         
-        if (collision.CompareTag("Enemigo")) {
+        if (collision.CompareTag("Enemigo")) { // si toca al enemigo
 
             collision.transform.parent.gameObject.SetActive(false); // Accedo al padre del enemigo y lo desactivo
 
-            Instantiate(efectoMuerte, collision.transform.position, collision.transform.rotation);
+            Instantiate(efectoMuerte, collision.transform.position, collision.transform.rotation); // instancio el efecto de muerte de los enemigos
 
-            ControladorJugador.instancia.rebotar();
+            ControladorJugador.instancia.rebotar(); // hago que el jugador rebote
 
             float drop = Random.Range(0, 100f);
 

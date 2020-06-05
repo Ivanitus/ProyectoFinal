@@ -17,7 +17,7 @@ public class SalidaNivel : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         
-        if (collision.CompareTag("Player")) {
+        if (collision.CompareTag("Player")) { // si el jugador toca el area de salida del nivel
 
             GestorNivel.instancia.finNivel();
 

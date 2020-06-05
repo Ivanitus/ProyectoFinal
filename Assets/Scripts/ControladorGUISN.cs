@@ -4,15 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Clase para controlar la interfaz grafica de la pantalla de seleccion de nivel
-public class ControladorGUISN : MonoBehaviour {
+public class ControladorGUISN : ControladorInterfacesGraficas {
 
     public static ControladorGUISN instancia;
-
-    public Image pantallaTransicion;
-
-    public float velocidadTransicion;
-
-    private bool debeTransicionANegro, debeTransicionDesdeNegro;
 
     public GameObject panelInformacionNivel;
 
@@ -57,20 +51,6 @@ public class ControladorGUISN : MonoBehaviour {
             }
 
         }
-
-    }
-
-    public void transicinANegro() {
-
-        debeTransicionANegro = true;
-        debeTransicionDesdeNegro = false;
-
-    }
-
-    public void transicionDesdeNegro() {
-
-        debeTransicionANegro = false;
-        debeTransicionDesdeNegro = true;
 
     }
 

@@ -16,17 +16,17 @@ public class MatarJugador : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         
-        if (collision.CompareTag("Player")) {
+        if (collision.CompareTag("Player")) { // si se choca con el jugador
 
             GestorAudio.instancia.reproducirSFX(8);
 
             if (ControladorVidaJugador.instancia.vidasJugadorActuales > 0) {
 
-                GestorNivel.instancia.RespawnearJugador();
+                GestorNivel.instancia.RespawnearJugador(); // respawnea el jugador
 
             } else {
 
-                GestorNivel.instancia.muerteJugador();
+                GestorNivel.instancia.muerteJugador(); // mata al jugador
 
             }
 

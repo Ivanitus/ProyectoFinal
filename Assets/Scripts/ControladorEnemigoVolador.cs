@@ -37,13 +37,13 @@ public class ControladorEnemigoVolador : Volar {
 
         } else {
 
-            if (Vector3.Distance(transform.position, ControladorJugador.instancia.transform.position) > distanciaParaAtacarJugador) {
+            if (Vector3.Distance(transform.position, ControladorJugador.instancia.transform.position) > distanciaParaAtacarJugador) { // si la distancia entre el jugador y el enemigo es mayor que la distancia necesaria
 
-                objetivoAtaque = Vector3.zero;
+                objetivoAtaque = Vector3.zero; // el enemigo deja de tener un objetivo que atacar
 
-                transform.position = Vector3.MoveTowards(transform.position, puntos[puntoActual].position, velocidadMovimiento * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, puntos[puntoActual].position, velocidadMovimiento * Time.deltaTime); // hago que el enemigo volador se mueva entre sus puntos
 
-                if (Vector3.Distance(transform.position, puntos[puntoActual].position) < .05f) {
+                if (Vector3.Distance(transform.position, puntos[puntoActual].position) < .05f) { // si la distancia entre el enemigo y el punto al que tiene que ir es menor de 0.05
 
                     puntoActual++;
 
@@ -71,11 +71,11 @@ public class ControladorEnemigoVolador : Volar {
 
                 if (objetivoAtaque == Vector3.zero) { // Vector3.zero tiene todos los valores a 0 (x, y, z)
 
-                    objetivoAtaque = ControladorJugador.instancia.transform.position;
+                    objetivoAtaque = ControladorJugador.instancia.transform.position; // igualo el objetivo de ataque a la posicion del jugador
 
                 }
 
-                transform.position = Vector3.MoveTowards(transform.position, objetivoAtaque, velocidadPerseguir * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, objetivoAtaque, velocidadPerseguir * Time.deltaTime); // muevo el enemigo hacia el jugador
 
                 if (transform.position.x < objetivoAtaque.x) {
 
@@ -87,7 +87,7 @@ public class ControladorEnemigoVolador : Volar {
 
                 }
 
-                if (Vector3.Distance(transform.position, objetivoAtaque) <= .1f) {
+                if (Vector3.Distance(transform.position, objetivoAtaque) <= .1f) { // si la distancia es menor de 0.1
 
                     contadorAtaque = tiempoEsperaDespuesAtaque;
 

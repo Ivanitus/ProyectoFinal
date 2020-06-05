@@ -145,7 +145,7 @@ public class ControladorJugador : MonoBehaviour {
         
         if (collision.gameObject.CompareTag("Plataforma")) {
 
-            transform.parent = collision.transform;
+            transform.parent = collision.transform; // hago hijo de la plataforma al jugador
 
         }
 
@@ -155,7 +155,7 @@ public class ControladorJugador : MonoBehaviour {
 
         if (collision.gameObject.CompareTag("Plataforma")) {
 
-            transform.parent = null;
+            transform.parent = null; // el jugador deja de ser hijo de la plataforma
 
         }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Clase para controlar la interfaz gráfica del usuario (GUI)
-public class ControladorGUI : MonoBehaviour {
+public class ControladorGUI : ControladorInterfacesGraficas {
 
     public static ControladorGUI instancia; // Singleton
 
@@ -17,12 +17,6 @@ public class ControladorGUI : MonoBehaviour {
     public Sprite zorroVivo;
 
     public Text textoGemas;
-
-    public Image pantallaTransicion;
-
-    public float velocidadTransicion;
-
-    private bool debeTransicionANegro, debeTransicionDesdeNegro;
 
     public GameObject textoNivelCompletado;
 
@@ -63,8 +57,7 @@ public class ControladorGUI : MonoBehaviour {
 
             pantallaTransicion.color = new Color(pantallaTransicion.color.r, pantallaTransicion.color.g, pantallaTransicion.color.b, Mathf.MoveTowards(pantallaTransicion.color.a, 0f, velocidadTransicion * Time.deltaTime));
 
-            if (pantallaTransicion.color.a == 0f)
-            {
+            if (pantallaTransicion.color.a == 0f) {
 
                 debeTransicionDesdeNegro = false;
 
@@ -133,6 +126,7 @@ public class ControladorGUI : MonoBehaviour {
 
     public void actualizarVidasJugador() {
 
+        // cargo las vidas totales del jugador
         switch(ControladorVidaJugador.instancia.vidasJugadorActuales) {
 
             case 3:
@@ -167,22 +161,6 @@ public class ControladorGUI : MonoBehaviour {
     public void actualizarContadorGemas() {
 
         textoGemas.text = GestorNivel.instancia.gemasRecogidas.ToString();
-
-    }
-
-    public void transicinANegro()
-    {
-
-        debeTransicionANegro = true;
-        debeTransicionDesdeNegro = false;
-
-    }
-
-    public void transicionDesdeNegro()
-    {
-
-        debeTransicionANegro = false;
-        debeTransicionDesdeNegro = true;
 
     }
 

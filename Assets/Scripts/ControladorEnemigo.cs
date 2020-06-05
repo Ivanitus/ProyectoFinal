@@ -40,17 +40,17 @@ public class ControladorEnemigo : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-            if (contadorMovimiento > 0) {
+            if (contadorMovimiento > 0) { // si el contador de movimiento es mayor de 0
 
-                contadorMovimiento -= Time.deltaTime;
+                contadorMovimiento -= Time.deltaTime; // disminuyo el contador de movimiento con el deltatime
 
                 if (moverDerecha) {
 
-                    rigidbody.velocity = new Vector2(velocidadMovimiento, rigidbody.velocity.y);
+                    rigidbody.velocity = new Vector2(velocidadMovimiento, rigidbody.velocity.y); // muevo el enemigo a la derecha
 
                     renderizador.flipX = true;
 
-                    if (transform.position.x > puntoDerecho.position.x) {
+                    if (transform.position.x > puntoDerecho.position.x) { // si llega al punto a la derecha cambio moverderecha a false
 
                         moverDerecha = false;
 
@@ -58,11 +58,11 @@ public class ControladorEnemigo : MonoBehaviour {
 
                 } else {
 
-                    rigidbody.velocity = new Vector2(-velocidadMovimiento, rigidbody.velocity.y);
+                    rigidbody.velocity = new Vector2(-velocidadMovimiento, rigidbody.velocity.y); // muevo el enemigo a la izquierda
 
                     renderizador.flipX = false;
 
-                    if (transform.position.x < puntoIzquierdo.position.x) {
+                    if (transform.position.x < puntoIzquierdo.position.x) { // si llega al punto a la izquierda cambio moverderecha a true
 
                         moverDerecha = true;
 
@@ -72,25 +72,25 @@ public class ControladorEnemigo : MonoBehaviour {
 
                 if (contadorMovimiento <= 0) {
 
-                    contadorEspera = Random.Range(tiempoEspera * .5f, tiempoEspera * 1.5f);
+                    contadorEspera = Random.Range(tiempoEspera * .5f, tiempoEspera * 1.5f); // establezco el tiempo en espera del enemigo a un numero aleatorio
 
                 }
 
-                anim.SetBool("isMoviendo", true);
+                anim.SetBool("isMoviendo", true); // activo la animacion de movimiento
 
-            } else if (tiempoEspera > 0) {
+            } else if (tiempoEspera > 0) { 
 
-                contadorEspera -= Time.deltaTime;
+                contadorEspera -= Time.deltaTime; // disminuyo el contador de espera con el deltatime
 
-                rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
+                rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y); // dejo de hacer que se mueva el enemigo
 
                 if (contadorEspera <= 0) {
 
-                    contadorMovimiento = Random.Range(tiempoMovimiento * .5f, tiempoMovimiento * 1.5f);
+                    contadorMovimiento = Random.Range(tiempoMovimiento * .5f, tiempoMovimiento * 1.5f); // establezco el tiempo en movimiento del enemigo a un numero aleatorio
 
                 }
 
-                anim.SetBool("isMoviendo", false);
+                anim.SetBool("isMoviendo", false); // desactivo la animación de movimiento
 
             }
 

@@ -23,17 +23,17 @@ public class ActivadorBoss : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         
-        if (collision.CompareTag("Player")) {
+        if (collision.CompareTag("Player")) { // si el jugador entra en la zona
 
-            batallaBoss.SetActive(true);
-
-            gameObject.SetActive(false);
+            batallaBoss.SetActive(true); // se activa el boss
+            
+            gameObject.SetActive(false); // se desactiva el activador
 
             ControladorVidaJugador.instancia.vidasJugadorActuales = 1;
 
             ControladorGUI.instancia.actualizarVidasJugador();
 
-            ControladorGUIBatallaFinal.instancia.activarImagenesTexto();
+            ControladorGUIBatallaFinal.instancia.activarImagenesTexto(); // se muestra la vida del boss y su nombre
 
             GestorAudio.instancia.reproducirMusicaBoss();
 

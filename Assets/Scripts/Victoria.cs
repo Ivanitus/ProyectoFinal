@@ -24,7 +24,7 @@ public class Victoria : MonoBehaviour {
 
     public void menuPrincipal() {
 
-        SceneManager.LoadScene(menuPrincipalEscena);
+        SceneManager.LoadScene(menuPrincipalEscena); // cargo el menu principal
 
     }
 

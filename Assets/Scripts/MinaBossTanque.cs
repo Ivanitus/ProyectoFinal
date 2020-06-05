@@ -23,7 +23,7 @@ public class MinaBossTanque : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         
-        if (collision.CompareTag("Player")) {
+        if (collision.CompareTag("Player")) { // si choca con el jugador
 
             explotar();
 
@@ -37,11 +37,11 @@ public class MinaBossTanque : MonoBehaviour {
 
     public void explotar() {
 
-        Destroy(gameObject);
+        Destroy(gameObject); // destruyo la mina
 
-        GestorAudio.instancia.reproducirSFX(3);
+        GestorAudio.instancia.reproducirSFX(3); // reproduzco el sonido de la conexion
 
-        Instantiate(explosion, transform.position, transform.rotation);
+        Instantiate(explosion, transform.position, transform.rotation); // instancio la animacion de la explosion
 
     }
 

@@ -59,7 +59,7 @@ public class ControladorBossTanque : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
 
-        estadoActual = estadosBoss.DISPARANDO;
+        estadoActual = estadosBoss.DISPARANDO; // se define el estado como disparando
 
     }
 
@@ -70,15 +70,15 @@ public class ControladorBossTanque : MonoBehaviour {
 
             case estadosBoss.DISPARANDO:
 
-                contadorDisparo -= Time.deltaTime;
+                contadorDisparo -= Time.deltaTime; // es el tiempo entre disparo y disparo
 
                 if (contadorDisparo <= 0) {
 
                     contadorDisparo = tiempoEntreDisparos;
 
-                    var nuevaBala = Instantiate(balas, puntoDisparo.position, puntoDisparo.rotation); // var es un tipo que solo se puede usar como variable local dentro de un metodo
+                    var nuevaBala = Instantiate(balas, puntoDisparo.position, puntoDisparo.rotation); // var es un tipo que solo se puede usar como variable local dentro de un metodo. Instanciamos la bala
 
-                    nuevaBala.transform.localScale = boss.localScale;
+                    nuevaBala.transform.localScale = boss.localScale; // se orienta la bala al mismo lado que mira el tanque
 
                 }
 
@@ -88,7 +88,7 @@ public class ControladorBossTanque : MonoBehaviour {
 
                 if (contadorDano > 0) {
 
-                    contadorDano -= Time.deltaTime;
+                    contadorDano -= Time.deltaTime; // recibe daño
 
                     if (contadorDano <= 0) {
 
@@ -96,19 +96,19 @@ public class ControladorBossTanque : MonoBehaviour {
 
                         contadorMinas = 0;
 
-                        if (derrotado) {
+                        if (derrotado) { // si se derrota el enemigo
 
-                            boss.gameObject.SetActive(false);
+                            boss.gameObject.SetActive(false); // se desactiva el tanque
 
-                            Instantiate(explosion, boss.position, boss.rotation);
+                            Instantiate(explosion, boss.position, boss.rotation); // se instancia la animacion de explosion
 
-                            plataformasVictoria.SetActive(true);
+                            plataformasVictoria.SetActive(true); // se activan las plataformas
+                            
+                            GestorAudio.instancia.pararMusicaBoss(); // se para la musica del boss
 
-                            GestorAudio.instancia.pararMusicaBoss();
+                            aparecerGemas(); // aparecen las 25 gemas
 
-                            aparecerGemas();
-
-                            estadoActual = estadosBoss.FINALIZADO;
+                            estadoActual = estadosBoss.FINALIZADO; // se marca el estado del boss como finalizado
 
                         }
 
@@ -120,9 +120,9 @@ public class ControladorBossTanque : MonoBehaviour {
 
             case estadosBoss.MOVIENDO:
 
-                if (moverDerecha) {
+                if (moverDerecha) { // si se mueve a la derecha
 
-                    boss.position += new Vector3(velocidadMovimiento * Time.deltaTime, 0f, 0f);
+                    boss.position += new Vector3(velocidadMovimiento * Time.deltaTime, 0f, 0f); // se mueve el tanque hacia la derecha
 
                     if (boss.position.x > puntoDerecha.position.x) {
 
@@ -136,7 +136,7 @@ public class ControladorBossTanque : MonoBehaviour {
 
                 } else {
 
-                    boss.position -= new Vector3(velocidadMovimiento * Time.deltaTime, 0f, 0f);
+                    boss.position -= new Vector3(velocidadMovimiento * Time.deltaTime, 0f, 0f); // se mueve el tanque hacia la izquierda
 
                     if (boss.position.x < puntoIzquierda.position.x) {
 
@@ -150,13 +150,13 @@ public class ControladorBossTanque : MonoBehaviour {
 
                 }
 
-                contadorMinas -= Time.deltaTime;
+                contadorMinas -= Time.deltaTime; // tiempo de despliegue entre minas
 
                 if (contadorMinas <= 0) {
 
                     contadorMinas = tiempoEntreMinas;
 
-                    Instantiate(mina, puntoMina.position, puntoMina.rotation);
+                    Instantiate(mina, puntoMina.position, puntoMina.rotation); // instancio las minas
 
                 }
 
@@ -179,29 +179,30 @@ public class ControladorBossTanque : MonoBehaviour {
 
     }
 
+    // Metodo para realizar el daño al boss
     public void recibirGolpe() {
 
-        estadoActual = estadosBoss.DANADO;
+        estadoActual = estadosBoss.DANADO; // cambio el estado a dañado
 
         contadorDano = tiempoDano;
 
-        animador.SetTrigger("Danado");
+        animador.SetTrigger("Danado"); // cambio el trigger de la animacion de daño
 
         GestorAudio.instancia.reproducirSFX(0);
 
-        MinaBossTanque[] minas = FindObjectsOfType<MinaBossTanque>();
+        MinaBossTanque[] minas = FindObjectsOfType<MinaBossTanque>(); // guardo todas las minas que haya en el nivel en este array
 
         if (minas.Length > 0) {
 
             for (int i = 0; i < minas.Length; i++) {
 
-                minas[i].explotar();
+                minas[i].explotar(); // exploto las minas que se hayan guardado en el array
 
             }
 
         }
 
-        vida--;
+        vida--; // resto 1 vida al boss
 
         if (vida <= 0) {
 
@@ -209,9 +210,9 @@ public class ControladorBossTanque : MonoBehaviour {
 
         } else {
 
-            tiempoEntreDisparos /= aumentarVelocidadDisparos;
+            tiempoEntreDisparos /= aumentarVelocidadDisparos; // disminuyo el tiempo entre disparos
 
-            tiempoEntreMinas /= aumentarVelocidadMinas;
+            tiempoEntreMinas /= aumentarVelocidadMinas; // disminuyo el tiempo entre minas
 
         }
 
@@ -219,18 +220,20 @@ public class ControladorBossTanque : MonoBehaviour {
 
     }
 
+    // Metodo para finalizar el movimiento del boss
     private void finalizarMovimiento() {
 
         estadoActual = estadosBoss.DISPARANDO;
 
         contadorDisparo = 0f;
 
-        animador.SetTrigger("PararMovimiento");
+        animador.SetTrigger("PararMovimiento"); // activo el trigger parar movimiento para parar la animación de movimiento del boss
 
-        hitbox.SetActive(true);
+        hitbox.SetActive(true); // hago vulnerable al boss
 
     }
 
+    // Metodo para hacer aperecer las gemas
     private void aparecerGemas() {
 
         for(int i = 0; i < gemas.Length; i++) {

@@ -32,7 +32,7 @@ public class SliderMusica : Sliders {
 
     public void escribirDatos() {
 
-        PlayerPrefs.SetFloat("VolumenMusica", slider.value);
+        PlayerPrefs.SetFloat("VolumenMusica", slider.value); // guardo los datos
 
     }
 

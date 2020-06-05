@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Clase para controlar la palanca
 public class Palanca : MonoBehaviour {
 
     public GameObject objetoAInteractuar;
@@ -30,7 +31,7 @@ public class Palanca : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         
-        if (collision.CompareTag("Player") && !interaccionado) {
+        if (collision.CompareTag("Player") && !interaccionado) { // si el jugador la toca y no se ha interaccionado ya
 
             if (desactivarAlInteraccionar) {
 

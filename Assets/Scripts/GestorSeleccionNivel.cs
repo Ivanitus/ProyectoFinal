@@ -15,7 +15,7 @@ public class GestorSeleccionNivel : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
 
-        if (PlayerPrefs.GetInt("MusicaActivada") == 1) {
+        if (PlayerPrefs.GetInt("MusicaActivada") == 1) { // compruebo los ajustes de la musica
 
             musicaFondo.volume = PlayerPrefs.GetFloat("VolumenMusica");
 
@@ -25,7 +25,7 @@ public class GestorSeleccionNivel : MonoBehaviour {
 
         puntos = FindObjectsOfType<PuntoMapa>();
 
-        if (PlayerPrefs.HasKey("NivelActual")) {
+        if (PlayerPrefs.HasKey("NivelActual")) { // compruebo si existe la clave nivelactual en las preferencias
 
             for (int i = 0; i < puntos.Length; i++) {
 
@@ -54,7 +54,7 @@ public class GestorSeleccionNivel : MonoBehaviour {
 
     }
 
-    private IEnumerator cargarNivelCO() {
+    private IEnumerator cargarNivelCO() { // corutina para cargar el nivel
 
         GestorAudio.instancia.reproducirSFX(4);
 

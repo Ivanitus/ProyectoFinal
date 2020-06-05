@@ -31,10 +31,9 @@ public class SliderActivarEfectos : Sliders
 
     }
 
-    public void escribirDatos()
-    {
+    public void escribirDatos() {
 
-        PlayerPrefs.SetInt("EfectosActivados", (int)slider.value);
+        PlayerPrefs.SetInt("EfectosActivados", (int)slider.value); // guardo las preferencias
 
     }
 

@@ -23,7 +23,7 @@ public class HitboxBossTanque : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         
-        if (collision.CompareTag("Player") && ControladorJugador.instancia.transform.position.y > transform.position.y) {
+        if (collision.CompareTag("Player") && ControladorJugador.instancia.transform.position.y > transform.position.y) { // compruebo si el boss es atacado
 
             controladorBoss.recibirGolpe();
 

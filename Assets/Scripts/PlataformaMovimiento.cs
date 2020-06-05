@@ -16,7 +16,7 @@ public class PlataformaMovimiento : Volar {
     // Update is called once per frame
     void Update() {
 
-        plataforma.position = Vector3.MoveTowards(plataforma.position, puntos[puntoActual].position, velocidadMovimiento * Time.deltaTime);
+        plataforma.position = Vector3.MoveTowards(plataforma.position, puntos[puntoActual].position, velocidadMovimiento * Time.deltaTime); // muevo  la plataforma entre los puntos
 
         if (Vector3.Distance(plataforma.position, puntos[puntoActual].position) < .05f) {
 

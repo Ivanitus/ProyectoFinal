@@ -59,7 +59,7 @@ public class JugadorSN : MonoBehaviour {
 
             }
 
-            if (puntoActual.puntoNivel && puntoActual.nombreNivel != "" && !puntoActual.bloqueado) {
+            if (puntoActual.puntoNivel && puntoActual.nombreNivel != "" && !puntoActual.bloqueado) { // si el nivel esta desbloqueado
 
                 ControladorGUISN.instancia.mostrarInformacion(puntoActual);
 
@@ -77,7 +77,7 @@ public class JugadorSN : MonoBehaviour {
 
     }
 
-    private void setSiguientePunto(PuntoMapa siguientePunto) {
+    private void setSiguientePunto(PuntoMapa siguientePunto) { // establezco el siguiente punto por el que te tienes que desplazar por el mapa
 
         puntoActual = siguientePunto;
 

@@ -31,7 +31,7 @@ public class SliderSFX : Sliders {
 
     public void escribirDatos() {
 
-        PlayerPrefs.SetFloat("VolumenSFX", slider.value);
+        PlayerPrefs.SetFloat("VolumenSFX", slider.value); // guardo los datos
 
     }
 

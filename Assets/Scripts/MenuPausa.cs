@@ -37,7 +37,7 @@ public class MenuPausa : Menus {
 
         int VerticalInput = (int)Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape)) { // activar al pulsar escape
 
             desactivarImagenesMando();
 
@@ -47,7 +47,7 @@ public class MenuPausa : Menus {
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button7)) {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button7)) { // activar al pulsar el boton start de un mando de xbox
 
             desactivarImagenesTeclado();
 
@@ -131,7 +131,7 @@ public class MenuPausa : Menus {
 
     }
 
-    public void pausarContinuar() {
+    public void pausarContinuar() { // pausar/continuar partida
 
         if (pausado) {
 

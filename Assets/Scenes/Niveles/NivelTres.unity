@@ -1995,7 +1995,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -90375647409325229, guid: 646c9b56df3e3c0449e1e69cb8d36fc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3160,7 +3160,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -90375647409325229, guid: 646c9b56df3e3c0449e1e69cb8d36fc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3992,6 +3992,11 @@ PrefabInstance:
       propertyPath: puntos.Array.data[4]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 631196879683242333, guid: b88eeed6c145a404493d7839a68b2079,
+        type: 3}
+      propertyPath: velocidadMovimiento
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 631196879683242335, guid: b88eeed6c145a404493d7839a68b2079,
         type: 3}
       propertyPath: m_Name
@@ -4313,8 +4318,22 @@ CompositeCollider2D:
         Y: 50000000
       - X: 1700000000
         Y: -20000000
-      - X: 1280000000
+      - X: 1290000100
         Y: -20000000
+      - X: 1290000100
+        Y: -19999959
+      - X: 1290000041
+        Y: -19999900
+      - X: 1279999959
+        Y: -19999900
+      - X: 1279999900
+        Y: -19999959
+      - X: 1279999900
+        Y: -30000041
+      - X: 1279999959
+        Y: -30000100
+      - X: 1280000000
+        Y: -30000100
       - X: 1280000000
         Y: -80000000
       - X: 1780000000
@@ -4413,7 +4432,7 @@ CompositeCollider2D:
       - {x: 177.99997, y: 5}
       - {x: 170, y: 4.999971}
       - {x: 169.99997, y: -2}
-      - {x: 128, y: -2.0000293}
+      - {x: 127.99999, y: -2.0000253}
       - {x: 128.00003, y: -8}
     - - {x: 57.99997, y: -8}
       - {x: 57.99997, y: -2}
@@ -11562,8 +11581,8 @@ Tilemap:
   - first: {x: 128, y: -3, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 9
-      m_TileSpriteIndex: 9
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -12621,9 +12640,9 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 8b5411bf8539cf446a93f46a248331d8, type: 2}
   - m_RefCount: 32
     m_Data: {fileID: 11400000, guid: 26a27e4adf2615d48a882ade6a34e1be, type: 2}
-  - m_RefCount: 9
+  - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: 65ba5093fe9046b43986077f5b84bb29, type: 2}
-  - m_RefCount: 143
+  - m_RefCount: 142
     m_Data: {fileID: 11400000, guid: 54e57c4671a70c54a8c0b8f893172ee2, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 22
@@ -12649,10 +12668,10 @@ Tilemap:
   - m_RefCount: 32
     m_Data: {fileID: 8094085342786833245, guid: 9bcfd10f4b117ea4ebb5682e5337e612,
       type: 3}
-  - m_RefCount: 9
+  - m_RefCount: 10
     m_Data: {fileID: 3287848783686573333, guid: 9bcfd10f4b117ea4ebb5682e5337e612,
       type: 3}
-  - m_RefCount: 143
+  - m_RefCount: 142
     m_Data: {fileID: -5463897620222462305, guid: 9bcfd10f4b117ea4ebb5682e5337e612,
       type: 3}
   m_TileMatrixArray:
@@ -14122,7 +14141,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -90375647409325229, guid: 646c9b56df3e3c0449e1e69cb8d36fc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

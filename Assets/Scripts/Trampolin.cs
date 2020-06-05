@@ -12,7 +12,7 @@ public class Trampolin : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
 
-        animador = GetComponent<Animator>();
+        animador = GetComponent<Animator>(); // cargo el animador del juego
 
     }
 
@@ -25,13 +25,13 @@ public class Trampolin : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         
-        if (collision.CompareTag("Player")) {
+        if (collision.CompareTag("Player")) { // si el jugador lo toca
 
-            GestorAudio.instancia.reproducirSFX(10);
+            GestorAudio.instancia.reproducirSFX(10); // se reproduce el sonido de salto
 
-            ControladorJugador.instancia.rigidbody.velocity = new Vector2(ControladorJugador.instancia.rigidbody.velocity.x, fuerzaRebote);
+            ControladorJugador.instancia.rigidbody.velocity = new Vector2(ControladorJugador.instancia.rigidbody.velocity.x, fuerzaRebote); // hago que el jugador salte
 
-            animador.SetTrigger("Rebotar");
+            animador.SetTrigger("Rebotar"); // activo el trigger rebotar para activar la animación de salto
 
         }
 

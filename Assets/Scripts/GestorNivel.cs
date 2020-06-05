@@ -132,7 +132,7 @@ public class GestorNivel : MonoBehaviour {
 
         PlayerPrefs.SetString("NivelActual", SceneManager.GetActiveScene().name);
 
-        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_gemas")) {
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_gemas")) { // cargo las gemas recogidas
 
             if (gemasRecogidas > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_gemas")) {
 
@@ -146,7 +146,7 @@ public class GestorNivel : MonoBehaviour {
 
         }
 
-        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_tiempo")) {
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_tiempo")) { // cargo el tiempo
 
             if (tiempoNivel < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + "_tiempo")) {
 

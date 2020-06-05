@@ -29,7 +29,7 @@ public class SliderActivarMusica : Sliders {
 
     public void escribirDatos() {
 
-        PlayerPrefs.SetInt("MusicaActivada", (int)slider.value);
+        PlayerPrefs.SetInt("MusicaActivada", (int)slider.value); // guardo las preferencias
 
     }
 
